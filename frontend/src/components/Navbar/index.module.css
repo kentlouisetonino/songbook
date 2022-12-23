@@ -1,0 +1,13 @@
+.brand {
+  color: black;
+  font-weight: bolder;
+  word-spacing: 0.1px;
+}
+
+.brand:hover {
+  color: rgb(90, 90, 90);
+}
+
+.nav:hover {
+  border-bottom: 1px solid black;
+}

@@ -1,0 +1,7 @@
+.authorName {
+  border-bottom: 1px solid #d54215;
+}
+
+.authorName:hover {
+  border-bottom: 2px solid #d54215;
+}
