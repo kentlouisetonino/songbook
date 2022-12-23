@@ -1,0 +1,64 @@
+name: song-book-backend (develop)
+
+on:
+  push:
+    branches:
+      - develop
+  pull_request:
+    branches:
+      - develop
+permissions:
+  checks: write
+  contents: write
+jobs:
+  build:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-20.04]
+        node: [16]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Setup node env
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node }}
+      - name: Cache node_modules
+        uses: actions/cache@v3
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+      - name: Run build
+        run: |
+          npm ci --force
+          npm run build --if-present
+  
+  clean:
+    runs-on: ${{ matrix.os }}
+    needs: build
+    strategy:
+      matrix:
+        os: [ubuntu-20.04]
+        node: [16]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          ref: ${{ github.head_ref }}
+      - name: Install dependencies
+        run: |
+          npm ci --force
+      - name: Run linter
+        run: |
+          npm run lint
+      - name: Run prettier
+        run: |
+          npm run format
+      - name: Save changes
+        run: |
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git config --global user.name "github-actions[bot]"
+          git diff-index --quiet HEAD || (git commit -a -m'[Bot] update: apply prettier formatter' && git push -f) || echo "No changes to commit"
