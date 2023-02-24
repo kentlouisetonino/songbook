@@ -1,6 +1,6 @@
 ## Description
 
-> A computer program that will allow to save your favorite song lyrics. Below are the features implemented.
+> A full stack application that will allow to save your favorite song lyrics.
 >
 > - Can create user.
 > - Can login user.
