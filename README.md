@@ -1,6 +1,6 @@
 ## Description
 
-> A Full Stack Application that will allow to save your favorite song lyrics.
+> A full-stack application that will allow to save a song description and lyrics.
 >
 > - Can create user.
 > - Can login user.
