@@ -22,7 +22,7 @@ https://user-images.githubusercontent.com/69438999/191708468-d845ada7-9ec0-4d4d-
 
 
 
-## Setup Guides
+## Setup Guide
 ```bash
 client: https://github.com/kentlouisetonino/web-songbook/blob/develop/client/README.md
 server: https://github.com/kentlouisetonino/web-songbook/blob/develop/server/README.md
