@@ -1,16 +1,21 @@
 ## Description
 
-> A full-stack application that will allow to save a song description and lyrics.
->
-> - Can create user.
-> - Can login user.
-> - Can protect the requets methods, if their is no access token.
-> - Can create song.
-> - Can update song.
-> - Can check details of the song.
-> - Can delete song.
-> - Can filter song by artist.
-> - Can filter song by title.
+> - A full-stack application that will allow to save a song description and lyrics.
+
+<br />
+
+> - Below are the features implemented.
+```plaintext
+- Can create user.
+- Can login user.
+- Can protect the requets methods, if their is no access token.
+- Can create song.
+- Can update song.
+- Can check details of the song.
+- Can delete song.
+- Can filter song by artist.
+- Can filter song by title.
+```
 
 <br />
 
