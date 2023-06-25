@@ -1,10 +1,7 @@
 {
-  "name": "server",
+  "name": "songbook-server",
   "version": "0.0.1",
-  "description": "",
   "author": "Kent Louise Tonino",
-  "private": false,
-  "license": "UNLICENSED",
   "scripts": {
     "prebuild": "rimraf dist",
     "build": "nest build",
@@ -20,7 +17,7 @@
     "migration:run": "npm run build && npm run typeorm migration:run",
     "migration:revert": "npm run build && npm run typeorm migration:revert",
     "db:diagram": "OPT_ENV=cli ts-node ./node_modules/.bin/typeorm-uml ./ormconfig.ts",
-    "test:watch": "jest --watchAll"
+    "test:all": "jest --watchAll"
   },
   "dependencies": {
     "@nestjs/cli": "^9.1.3",

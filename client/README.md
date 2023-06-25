@@ -5,9 +5,11 @@ NEXT_PUBLIC_BACKEND_API_ENDPOINT='http://localhost:11000'
 NEXT_PUBLIC_AUTH_JWT_SECRET='jwtTest123456'
 ```
 
+<br />
+
 > - Run the following commands.
 ```bash
-npm install
-npm run build
-npm run dev
+yarn install
+yarn build
+yarn dev
 ```

@@ -1,24 +1,39 @@
 ## Setup
 > - Create a `.env` file in the root directory and put the key value pair.
 ```bash
-AUTH_JWT_SECRET=’jwtTest123456’
-AUTH_PASSWORD_SECRET=’passwordTest123456’
-DB_HOST=’localhost’
+# * This is needed for authentication.
+AUTH_JWT_SECRET=jwtTest123456
+AUTH_PASSWORD_SECRET=passwordTest123456
+
+# * Connecting with MySQL database.
+DB_HOST=127.0.0.1
 DB_PORT=3310
-DB_NAME=’songbook’
-DB_USER=’root’
-DB_ROOT_PASSWORD=’root’
+DB_NAME=songbook
+DB_USER=root
+DB_ROOT_PASSWORD=root
+
+# * For server port.
 PORT=11000
 ```
 
+<br />
+
 > - Run the following commands.
 ```bash
-npm install or npm install –force
-docker-compose up --build -d
-npm run migration:run
-npm run start:dev
-npm run test:watch # For unit tests.
+# * Run first the dockerize MySQL engin.
+docker-compose up --build
+
+# * Run the installation of packages and dependency.
+yarn install
+
+# * For table migration in MySQL database.
+yarn migration:run
+
+# * Start server for development.
+yarn start:dev
 ```
+
+<br />
 
 > - Connecting dockerize database to a database client (Workbench, DBeaver).
 ```bash

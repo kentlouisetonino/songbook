@@ -1,5 +1,5 @@
 {
-  "name": "client",
+  "name": "songbook-client",
   "version": "0.1.0",
   "author": "Kent Louise Tonino",
   "private": false,
@@ -11,7 +11,6 @@
     "format": "prettier --write \"src/**/*.{ts,tsx,js,jsx,css}\" \"pages/**/*.{ts,tsx,js,jsx,css}\""
   },
   "dependencies": {
-    "@types/axios": "^0.14.0",
     "@types/bootstrap": "^5.2.4",
     "@types/js-cookie": "^3.0.2",
     "@types/jsonwebtoken": "^8.5.9",
