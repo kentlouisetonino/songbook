@@ -1,6 +1,6 @@
 ## Description
 
-> - A full-stack application that will allow to save a song description and lyrics.
+> - A full-stack application that will allow the to save a song description and lyrics. Uses ReactJS, NextJS, REST APIs, TypeORM, JWT, NestJS, MySQL, TypeScript, NodeJS, and Docker.
 
 <br />
 
