@@ -30,7 +30,7 @@ https://user-images.githubusercontent.com/69438999/191708468-d845ada7-9ec0-4d4d-
 
 
 ## Local Development Guide
-> - Client-Side : https://github.com/kentlouisetonino/web-songbook/blob/develop/client/README.md
+> - Client-Side : https://github.com/kentlouisetonino/songbook/tree/develop/client
 
-> - Server-Side : https://github.com/kentlouisetonino/web-songbook/blob/develop/server/README.md
+> - Server-Side : https://github.com/kentlouisetonino/songbook/tree/develop/server
 
