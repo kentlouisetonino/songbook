@@ -1,6 +1,5 @@
 import Cookies from 'js-cookie'
 import { useEffect, useState, Fragment } from 'react'
-import { NextPage } from 'next'
 import { useRouter } from 'next/router'
 
 import Navbar from 'src/components/Navbar'
@@ -13,7 +12,7 @@ import { loginAPI } from 'src/api/auth'
 import { CookiesStorage, PageRoute } from 'src/helpers/enums'
 import { loginValidator } from 'src/helpers/validators'
 
-const Login: NextPage = () => {
+export default function LoginUI() {
   const router = useRouter()
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
@@ -100,4 +99,3 @@ const Login: NextPage = () => {
   )
 }
 
-export default Login

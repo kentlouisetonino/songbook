@@ -1,26 +1,25 @@
 export enum APIEndpoint {
-  AUTH_LOGIN = '/auth/login',
-  USER = '/user',
-  USER_CREATE = '/user/create',
-  SONG = '/song',
-  SONG_CREATE = '/song/create',
-  SONG_UPDATE = '/song/update',
-  SONG_DELETE = '/song/delete',
-  SONG_ALL_BY_USER = '/song/all/user',
-  SONG_ALL_BY_ARTIST = '/song/all/artist',
-  SONG_ALL_BY_TITLE = '/song/all/title',
+  AuthLogin = '/auth/login',
+  User = '/user',
+  UserCreate = '/user/create',
+  Song = '/song',
+  SongCreate = '/song/create',
+  SongUpdate = '/song/update',
+  SongDelete = '/song/delete',
+  SongAllByUser = '/song/all/user',
+  SongAllByArtist = '/song/all/artist',
+  SongAllByTitle = '/song/all/title',
 }
 
 export enum CookiesStorage {
-  ACCESS_TOKEN = 'accessToken',
+  AccessToken = 'accessToken',
 }
 
 export enum PageRoute {
-  HOME = '/',
-  SONG = '/song',
-  SONG_UPDATE = '/song',
-  SONG_ADD = '/song/add',
-  SONG_ALL = '/',
-  LOGIN = '/login',
-  REGISTER = '/register',
+  Root = '/',
+  Song = '/song',
+  SongAdd = '/song/add',
+  Login = '/login',
+  Register = '/register',
 }
+

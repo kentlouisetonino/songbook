@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "author": "Kent Louise Tonino",
   "private": false,
+  "license": "MIT",
   "scripts": {
     "dev": "next dev",
     "build": "next build",

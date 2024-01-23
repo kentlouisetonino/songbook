@@ -14,7 +14,7 @@ import { CookiesStorage, PageRoute } from 'src/helpers/enums'
 import { getSongAPI, updateSongAPI } from 'src/api/song'
 import { getUserAPI } from 'src/api/user'
 
-const Update = () => {
+export default function UpdateUI() {
   const router = useRouter()
   const songId = router.query?.songId
   const [accessToken, setAccessToken] = useState('')
@@ -153,4 +153,3 @@ const Update = () => {
   )
 }
 
-export default Update

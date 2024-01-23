@@ -1,10 +1,9 @@
 import axios from 'axios'
 import Cookies from 'js-cookie'
 import Swal from 'sweetalert2'
-
 import { APIEndpoint, CookiesStorage, PageRoute } from 'src/helpers/enums'
 
-export const loginAPI = ({
+export function loginAPI({
   email,
   password,
   setIsLoading,
@@ -14,21 +13,21 @@ export const loginAPI = ({
   password: string
   setIsLoading: any
   router: any
-}) => {
+}) {
   axios({
     method: 'post',
-    url: process.env.NEXT_PUBLIC_BACKEND_API_ENDPOINT + APIEndpoint.AUTH_LOGIN,
+    url: process.env.NEXT_PUBLIC_BACKEND_API_ENDPOINT + APIEndpoint.AuthLogin,
     data: {
       email: email,
       password: password,
     },
   })
     .then((res) => {
-      Cookies.set(CookiesStorage.ACCESS_TOKEN, res.data.accessToken)
+      Cookies.set(CookiesStorage.AccessToken, res.data.accessToken)
       setIsLoading(false)
 
       Swal.fire('Success', 'Go to Home Page', 'success').then(() => {
-        router.push(PageRoute.HOME)
+        router.push(PageRoute.Root)
       })
     })
     .catch((err) => {

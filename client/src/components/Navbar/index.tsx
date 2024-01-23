@@ -22,7 +22,7 @@ const Navbar = ({ currentPage }: Props) => {
       <div className='container-fluid'>
         <a
           className={`navbar-brand fw-bolder ${styles.brand}`}
-          href={PageRoute.HOME}
+          href={PageRoute.ROOT}
         >
           SongBook
         </a>
@@ -48,7 +48,7 @@ const Navbar = ({ currentPage }: Props) => {
                   <a
                     className={`nav-link ${styles.nav}`}
                     aria-current='page'
-                    href={PageRoute.HOME}
+                    href={PageRoute.ROOT}
                     onClick={() => Cookies.remove(CookiesStorage.ACCESS_TOKEN)}
                   >
                     Logout

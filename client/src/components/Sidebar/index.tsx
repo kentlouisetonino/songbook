@@ -29,7 +29,7 @@ const Sidebar = ({ firstName, lastName, email }: Props) => {
       <div>
         <button
           className='btn btn-success w-100'
-          onClick={() => router.push(PageRoute.SONG_ALL)}
+          onClick={() => router.push(PageRoute.ROOT)}
         >
           All Song
         </button>

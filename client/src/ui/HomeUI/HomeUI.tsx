@@ -18,7 +18,7 @@ import {
   getAllSongByTitleAPI,
 } from 'src/api/song'
 
-const Home = () => {
+export default function HomeUI() {
   const router = useRouter()
   const [isLoggedIn, setIsLoggedIn] = useState(false)
   const [userId, setUserId] = useState(0)
@@ -28,7 +28,7 @@ const Home = () => {
   const [filterBy, setFilterBy] = useState('all')
   const [filterValue, setFilterValue] = useState('')
 
-  const onDeleteSong = (songId: number) => {
+  function onDeleteSong(songId: number) {
     deleteSongAPI({
       accessToken: accessToken,
       songId: songId,
@@ -36,7 +36,7 @@ const Home = () => {
     })
   }
 
-  const onFilterBySearch = () => {
+  function onFilterBySearch() {
     switch (filterBy) {
       case 'all':
         getAllSongByUserAPI({
@@ -212,7 +212,7 @@ const Home = () => {
                           className='btn btn-info w-100 mt-2'
                           onClick={() =>
                             router.push(
-                              PageRoute.SONG_UPDATE + `/${song.id}/update`
+                              PageRoute.SONG + `/${song.id}/update`
                             )
                           }
                         >
@@ -270,4 +270,3 @@ const Home = () => {
   )
 }
 
-export default Home

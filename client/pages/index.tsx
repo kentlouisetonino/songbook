@@ -1,1 +1,5 @@
-export { default } from '../src/pages/home'
+import HomeUI from '../src/ui/HomeUI/HomeUI'
+
+export default function HomePage() {
+  return <HomeUI />
+}

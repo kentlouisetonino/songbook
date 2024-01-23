@@ -14,7 +14,7 @@ import { CookiesStorage, PageRoute } from 'src/helpers/enums'
 import { createSongAPI } from 'src/api/song'
 import { getUserAPI } from 'src/api/user'
 
-const Add = () => {
+export default function AddUI() {
   const router = useRouter()
   const [accessToken, setAccessToken] = useState('')
   const [isLoggedIn, setIsLoggedIn] = useState(false)
@@ -143,4 +143,3 @@ const Add = () => {
   )
 }
 
-export default Add

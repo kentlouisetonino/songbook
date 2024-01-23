@@ -1,5 +1,4 @@
 import Cookies from 'js-cookie'
-import { NextPage } from 'next'
 import { Fragment, useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
 
@@ -9,7 +8,7 @@ import decodeToken from 'src/helpers/decode-token'
 import { getSongAPI } from 'src/api/song'
 import { PageRoute, CookiesStorage } from 'src/helpers/enums'
 
-const Details: NextPage = () => {
+export default function DetailsUI() {
   const router = useRouter()
   const songId = router.query?.songId
   const [title, setTitle] = useState('')
@@ -68,4 +67,3 @@ const Details: NextPage = () => {
   )
 }
 
-export default Details

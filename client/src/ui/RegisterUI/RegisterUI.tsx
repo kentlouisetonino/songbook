@@ -1,6 +1,5 @@
 import Cookies from 'js-cookie'
 import { useEffect, useState, Fragment } from 'react'
-import { NextPage } from 'next'
 import { useRouter } from 'next/router'
 
 import Navbar from 'src/components/Navbar'
@@ -13,7 +12,7 @@ import { createUserAPI } from 'src/api/user'
 import { registerValidator } from 'src/helpers/validators'
 import { CookiesStorage, PageRoute } from 'src/helpers/enums'
 
-const Register: NextPage = () => {
+export default function RegisterUI() {
   const router = useRouter()
   const [firstName, setFirstName] = useState('')
   const [lastName, setLastName] = useState('')
@@ -129,4 +128,3 @@ const Register: NextPage = () => {
   )
 }
 
-export default Register

@@ -6,7 +6,7 @@ import { Fragment } from 'react'
 
 import '../styles/globals.css'
 
-function MyApp({ Component, pageProps }: AppProps) {
+export default function MyApp({ Component, pageProps }: AppProps) {
   return (
     <Fragment>
       <Head>
@@ -23,4 +23,3 @@ function MyApp({ Component, pageProps }: AppProps) {
   )
 }
 
-export default MyApp

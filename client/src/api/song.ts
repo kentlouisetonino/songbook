@@ -3,7 +3,7 @@ import Swal from 'sweetalert2'
 
 import { APIEndpoint, PageRoute } from 'src/helpers/enums'
 
-export const createSongAPI = ({
+export function createSongAPI({
   accessToken,
   title,
   artist,
@@ -19,10 +19,10 @@ export const createSongAPI = ({
   userId: number
   setIsLoading: any
   router: any
-}) => {
+}) {
   axios({
     method: 'post',
-    url: process.env.NEXT_PUBLIC_BACKEND_API_ENDPOINT + APIEndpoint.SONG_CREATE,
+    url: process.env.NEXT_PUBLIC_BACKEND_API_ENDPOINT + APIEndpoint.SongCreate,
     headers: {
       Authorization: `Bearer ${accessToken}`,
     },
@@ -37,7 +37,7 @@ export const createSongAPI = ({
       setIsLoading(false)
 
       Swal.fire('Success', 'Go Back to Home Page', 'success').then(() => {
-        router.push(PageRoute.HOME)
+        router.push(PageRoute.Root)
       })
     })
     .catch((err) => {
@@ -46,7 +46,7 @@ export const createSongAPI = ({
     })
 }
 
-export const getSongAPI = ({
+export function getSongAPI({
   accessToken,
   songId,
   setTitle,
@@ -58,10 +58,10 @@ export const getSongAPI = ({
   setTitle: any
   setArtist: any
   setLyrics: any
-}) => {
+}) {
   axios({
     method: 'get',
-    url: process.env.NEXT_PUBLIC_BACKEND_API_ENDPOINT + APIEndpoint.SONG,
+    url: process.env.NEXT_PUBLIC_BACKEND_API_ENDPOINT + APIEndpoint.Song,
     headers: {
       Authorization: `Bearer ${accessToken}`,
     },
@@ -79,7 +79,7 @@ export const getSongAPI = ({
     })
 }
 
-export const getAllSongByUserAPI = ({
+export function getAllSongByUserAPI({
   accessToken,
   userId,
   setSongs,
@@ -87,12 +87,12 @@ export const getAllSongByUserAPI = ({
   accessToken: string
   userId: number
   setSongs: any
-}) => {
+}) {
   axios({
     method: 'get',
     url:
       process.env.NEXT_PUBLIC_BACKEND_API_ENDPOINT +
-      APIEndpoint.SONG_ALL_BY_USER,
+      APIEndpoint.SongAllByUser,
     headers: {
       Authorization: `Bearer ${accessToken}`,
     },
@@ -108,7 +108,7 @@ export const getAllSongByUserAPI = ({
     })
 }
 
-export const getAllSongByArtistAPI = ({
+export function getAllSongByArtistAPI({
   accessToken,
   search,
   userId,
@@ -118,12 +118,12 @@ export const getAllSongByArtistAPI = ({
   search: string
   userId: number
   setSongs: any
-}) => {
+}) {
   axios({
     method: 'get',
     url:
       process.env.NEXT_PUBLIC_BACKEND_API_ENDPOINT +
-      APIEndpoint.SONG_ALL_BY_ARTIST,
+      APIEndpoint.SongAllByArtist,
     headers: {
       Authorization: `Bearer ${accessToken}`,
     },
@@ -140,7 +140,7 @@ export const getAllSongByArtistAPI = ({
     })
 }
 
-export const getAllSongByTitleAPI = ({
+export function getAllSongByTitleAPI({
   accessToken,
   search,
   userId,
@@ -150,12 +150,12 @@ export const getAllSongByTitleAPI = ({
   search: string
   userId: number
   setSongs: any
-}) => {
+}) {
   axios({
     method: 'get',
     url:
       process.env.NEXT_PUBLIC_BACKEND_API_ENDPOINT +
-      APIEndpoint.SONG_ALL_BY_TITLE,
+      APIEndpoint.SongAllByTitle,
     headers: {
       Authorization: `Bearer ${accessToken}`,
     },
@@ -172,7 +172,7 @@ export const getAllSongByTitleAPI = ({
     })
 }
 
-export const updateSongAPI = ({
+export function updateSongAPI({
   accessToken,
   songId,
   title,
@@ -190,10 +190,10 @@ export const updateSongAPI = ({
   userId: number
   setIsLoading: any
   router: any
-}) => {
+}) {
   axios({
     method: 'post',
-    url: process.env.NEXT_PUBLIC_BACKEND_API_ENDPOINT + APIEndpoint.SONG_UPDATE,
+    url: process.env.NEXT_PUBLIC_BACKEND_API_ENDPOINT + APIEndpoint.SongUpdate,
     headers: {
       Authorization: `Bearer ${accessToken}`,
     },
@@ -213,7 +213,7 @@ export const updateSongAPI = ({
         'Go Back to Home Page',
         'success'
       ).then(() => {
-        router.push(PageRoute.HOME)
+        router.push(PageRoute.Root)
       })
     })
     .catch((err) => {
@@ -222,7 +222,7 @@ export const updateSongAPI = ({
     })
 }
 
-export const deleteSongAPI = ({
+export function deleteSongAPI({
   accessToken,
   songId,
   router,
@@ -230,10 +230,10 @@ export const deleteSongAPI = ({
   accessToken: string
   songId: number
   router: any
-}) => {
+}) {
   axios({
     method: 'delete',
-    url: process.env.NEXT_PUBLIC_BACKEND_API_ENDPOINT + APIEndpoint.SONG_DELETE,
+    url: process.env.NEXT_PUBLIC_BACKEND_API_ENDPOINT + APIEndpoint.SongDelete,
     headers: {
       Authorization: `Bearer ${accessToken}`,
     },

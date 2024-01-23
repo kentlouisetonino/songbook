@@ -3,7 +3,7 @@ import Swal from 'sweetalert2'
 
 import { APIEndpoint, PageRoute } from 'src/helpers/enums'
 
-export const getUserAPI = ({
+export function getUserAPI({
   accessToken,
   userId,
   setUserInfo,
@@ -11,10 +11,10 @@ export const getUserAPI = ({
   accessToken: string
   userId: string
   setUserInfo: any
-}) => {
+}) {
   axios({
     method: 'get',
-    url: process.env.NEXT_PUBLIC_BACKEND_API_ENDPOINT + APIEndpoint.USER,
+    url: process.env.NEXT_PUBLIC_BACKEND_API_ENDPOINT + APIEndpoint.User,
     headers: {
       Authorization: `Bearer ${accessToken}`,
     },
@@ -30,7 +30,7 @@ export const getUserAPI = ({
     })
 }
 
-export const createUserAPI = ({
+export function createUserAPI({
   firstName,
   lastName,
   email,
@@ -44,10 +44,10 @@ export const createUserAPI = ({
   password: string
   setIsLoading: any
   router: any
-}) => {
+}) {
   axios({
     method: 'post',
-    url: process.env.NEXT_PUBLIC_BACKEND_API_ENDPOINT + APIEndpoint.USER_CREATE,
+    url: process.env.NEXT_PUBLIC_BACKEND_API_ENDPOINT + APIEndpoint.UserCreate,
     data: {
       firstName: firstName,
       lastName: lastName,
@@ -59,7 +59,7 @@ export const createUserAPI = ({
       setIsLoading(false)
 
       Swal.fire('Success', 'Go to Login Page', 'success').then(() => {
-        router.push(PageRoute.LOGIN)
+        router.push(PageRoute.Login)
       })
     })
     .catch((err) => {
