@@ -1,6 +1,6 @@
-import RegisterUI from '../../src/ui/RegisterUI/RegisterUI'
+import Register from '../../src/ui/Register/Register'
 
 export default function RegisterPage() {
-  return <RegisterUI />
+  return <Register />
 }
 

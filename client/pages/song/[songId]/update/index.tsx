@@ -1,5 +1,5 @@
-import UpdateUI from '../../../../src/ui/SongUI/UpdateUI/UpdateUI'
+import Update from '../../../../src/ui/Song/Update/Update'
 
 export default function UpdatePage() {
-  return <UpdateUI />
+  return <Update />
 }

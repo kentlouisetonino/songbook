@@ -1,5 +1,5 @@
-import LoginUI from '../../src/ui/LoginUI/LoginUI'
+import Login from '../../src/ui/Login/Login'
 
 export default function LoginPage() {
-  return <LoginUI />
+  return <Login />
 }

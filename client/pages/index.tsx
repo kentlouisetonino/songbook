@@ -1,5 +1,5 @@
-import HomeUI from '../src/ui/HomeUI/HomeUI'
+import Home from '../src/ui/Home/Home'
 
 export default function HomePage() {
-  return <HomeUI />
+  return <Home />
 }
