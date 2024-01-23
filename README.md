@@ -1,8 +1,9 @@
 ## Description
 > - A web application that will allow the to save a song description and lyrics.
 
-> - The technology stack are ReactJS, NextJS, REST APIs, TypeORM, JWT, NestJS, MySQL,
-    TypeScript, NodeJS, and Docker.
+> - The technology stack are Bootstrap, ReactJS, and NextJS for `client-side`
+    and REST APIs, TypeORM, JWT, NestJS, MySQL, TypeScript, NodeJS, and Docker
+    for `server-side`.
 
 <br />
 
