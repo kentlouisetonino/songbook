@@ -1,6 +1,8 @@
 ## Description
+> - A full-stack application that will allow the to save a song description and lyrics.
 
-> - A full-stack application that will allow the to save a song description and lyrics. The technology stack are ReactJS, NextJS, REST APIs, TypeORM, JWT, NestJS, MySQL, TypeScript, NodeJS, and Docker.
+> - The technology stack are ReactJS, NextJS, REST APIs, TypeORM, JWT, NestJS, MySQL,
+    TypeScript, NodeJS, and Docker.
 
 <br />
 
@@ -27,10 +29,8 @@ https://user-images.githubusercontent.com/69438999/191708468-d845ada7-9ec0-4d4d-
 
 
 
-## Setup Guide
-> - Client-Side Guide: https://github.com/kentlouisetonino/web-songbook/blob/develop/client/README.md
+## Local Development Guide
+> - Client-Side : https://github.com/kentlouisetonino/web-songbook/blob/develop/client/README.md
 
-<br />
-
-> - Server-Side Guide: https://github.com/kentlouisetonino/web-songbook/blob/develop/server/README.md
+> - Server-Side : https://github.com/kentlouisetonino/web-songbook/blob/develop/server/README.md
 
