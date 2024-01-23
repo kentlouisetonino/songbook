@@ -10,7 +10,7 @@
 ```plaintext
 - Can create user.
 - Can login user.
-- Can protect the requets methods, if their is no access token.
+- Can protect the request methods, if their is no access token.
 - Can create song.
 - Can update song.
 - Can check details of the song.
