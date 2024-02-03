@@ -39,7 +39,7 @@ jobs:
         run: |
           yarn install --frozen-lockfile
           yarn build
-        working-directory: ./client
+        working-directory: ./server
 
   clean:
     runs-on: ${{ matrix.os }}
@@ -61,7 +61,7 @@ jobs:
         run: |
           yarn install --frozen-lockfile
           yarn run format
-        working-directory: ./client
+        working-directory: ./server
       - name: Save Changes
         run: |
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
