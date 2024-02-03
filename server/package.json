@@ -1,7 +1,8 @@
 {
   "name": "songbook-server",
   "version": "0.0.1",
-  "author": "Kent Louise Tonino",
+  "author": "Kent Tonino",
+  "license": "MIT",
   "scripts": {
     "prebuild": "rimraf dist",
     "build": "nest build",
