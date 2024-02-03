@@ -1,9 +1,9 @@
 {
   "name": "songbook-client",
   "version": "0.1.0",
-  "author": "Kent Louise Tonino",
-  "private": false,
+  "author": "Kent Tonino",
   "license": "MIT",
+  "private": false,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
