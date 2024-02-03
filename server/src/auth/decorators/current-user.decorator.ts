@@ -1,5 +1,4 @@
-import { createParamDecorator } from '@nestjs/common'
-import { ExecutionContext } from '@nestjs/common'
+import { ExecutionContext, createParamDecorator } from '@nestjs/common'
 
 export const LoggedUser = createParamDecorator(
   (_data: unknown, context: ExecutionContext) => {

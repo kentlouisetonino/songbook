@@ -10,7 +10,7 @@
     "start:debug": "nest start --debug --watch",
     "start:prod": "node dist/main",
     "lint": "eslint \"{src,apps,libs,test}/**/*.ts\" --fix",
-    "format": "prettier --write \"src/**/*.ts\"",
+    "format": "prettier --write \"./src/**/*.ts\"",
     "migration:generate": "./node_modules/.bin/ts-node ./node_modules/.bin/typeorm migration:generate -d ./ormconfig.ts -- -n",
     "migration:create": "./node_modules/.bin/ts-node ./node_modules/.bin/typeorm migration:create -d ./ormconfig.ts -- -n",
     "migration:run": "./node_modules/.bin/ts-node ./node_modules/.bin/typeorm migration:run -d ./ormconfig.ts",
