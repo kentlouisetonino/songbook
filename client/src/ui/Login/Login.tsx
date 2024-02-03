@@ -1,16 +1,16 @@
 import Cookies from 'js-cookie'
-import { useEffect, useState, Fragment } from 'react'
 import { useRouter } from 'next/router'
+import { Fragment, useEffect, useState } from 'react'
 
-import Navbar from '../components/Navbar/Navbar'
-import Spinner from '../components/Spinner/Spinner'
-import Header from '../components/Head/Head'
-import InputField from '../components/InputField/InputField'
-import PasswordCheckbox from '../components/PasswordCheckbox/PasswordCheckbox'
-import Footer from '../components/Footer/Footer'
 import { loginAPI } from 'src/api/auth'
 import { CookiesStorage, PageRoute } from 'src/helpers/enums'
 import { loginValidator } from 'src/helpers/validators'
+import Footer from '../components/Footer/Footer'
+import Header from '../components/Head/Head'
+import InputField from '../components/InputField/InputField'
+import Navbar from '../components/Navbar/Navbar'
+import PasswordCheckbox from '../components/PasswordCheckbox/PasswordCheckbox'
+import Spinner from '../components/Spinner/Spinner'
 
 export default function Login() {
   const router = useRouter()

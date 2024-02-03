@@ -1,21 +1,21 @@
 import Cookies from 'js-cookie'
-import { Fragment, useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
-import Navbar from '../components/Navbar/Navbar'
-import Header from '../components/Head/Head'
-import Card from '../components/Card/Card'
-import Footer from '../components/Footer/Footer'
-import Jumbotron from '../components/Jumbotron/Jumbotron'
-import decodeToken from 'src/helpers/decode-token'
-import Sidebar from '../components/Sidebar/Sidebar'
-import { getUserAPI } from 'src/api/user'
-import { CookiesStorage, PageRoute } from 'src/helpers/enums'
+import { Fragment, useEffect, useState } from 'react'
 import {
   deleteSongAPI,
-  getAllSongByUserAPI,
   getAllSongByArtistAPI,
   getAllSongByTitleAPI,
+  getAllSongByUserAPI,
 } from 'src/api/song'
+import { getUserAPI } from 'src/api/user'
+import { CookiesStorage, PageRoute } from 'src/helpers/enums'
+import decodedToken from '../../helpers/decode-token'
+import Card from '../components/Card/Card'
+import Footer from '../components/Footer/Footer'
+import Header from '../components/Head/Head'
+import Jumbotron from '../components/Jumbotron/Jumbotron'
+import Navbar from '../components/Navbar/Navbar'
+import Sidebar from '../components/Sidebar/Sidebar'
 
 export default function Home() {
   const router = useRouter()
@@ -74,7 +74,7 @@ export default function Home() {
     if (!accessToken) {
       router.push(PageRoute.Root)
     } else {
-      const decodedAccessToken = decodeToken({ token: accessToken })
+      const decodedAccessToken: any = decodedToken({ token: accessToken })
 
       if (!decodedAccessToken) {
         Cookies.remove(CookiesStorage.AccessToken)
@@ -82,11 +82,11 @@ export default function Home() {
       } else {
         setIsLoggedIn(true)
         setAccessToken(accessToken)
-        setUserId(decodedAccessToken?.id)
+        setUserId(decodedAccessToken?.id ?? '')
 
         getUserAPI({
           accessToken: accessToken,
-          userId: decodedAccessToken?.id,
+          userId: decodedAccessToken?.id ?? '',
           setUserInfo: setUserInfo,
         })
       }

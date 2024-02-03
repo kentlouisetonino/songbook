@@ -1,5 +1,7 @@
 import axios from 'axios'
 import Cookies from 'js-cookie'
+import { NextRouter } from 'next/router'
+import { Dispatch, SetStateAction } from 'react'
 import { APIEndpoint, CookiesStorage, PageRoute } from 'src/helpers/enums'
 import Swal from 'sweetalert2'
 
@@ -11,8 +13,8 @@ export function loginAPI({
 }: {
   email: string
   password: string
-  setIsLoading: any
-  router: any
+  setIsLoading: Dispatch<SetStateAction<boolean>>
+  router: NextRouter
 }) {
   axios({
     method: 'post',

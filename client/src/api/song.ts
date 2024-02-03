@@ -1,6 +1,7 @@
 import axios from 'axios'
 import Swal from 'sweetalert2'
 
+import { Dispatch } from 'react'
 import { APIEndpoint, PageRoute } from 'src/helpers/enums'
 
 export function createSongAPI({
@@ -86,13 +87,16 @@ export function getAllSongByUserAPI({
 }: {
   accessToken: string
   userId: number
-  setSongs: any
+  setSongs: Dispatch<any>
 }) {
+  console.log('accessToken', accessToken)
+
   axios({
     method: 'get',
     url:
       process.env.NEXT_PUBLIC_BACKEND_API_ENDPOINT + APIEndpoint.SongAllByUser,
     headers: {
+      'Content-Type': 'application/json',
       Authorization: `Bearer ${accessToken}`,
     },
     params: {
