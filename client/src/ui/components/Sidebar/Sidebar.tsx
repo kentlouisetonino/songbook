@@ -42,4 +42,3 @@ export default function Sidebar({ firstName, lastName, email }: Props) {
     </div>
   )
 }
-

@@ -137,8 +137,8 @@ export default function Home() {
                       {!filterBy || filterBy === 'all'
                         ? 'All'
                         : filterBy === 'artist'
-                        ? 'Artist'
-                        : 'Title'}
+                          ? 'Artist'
+                          : 'Title'}
                     </span>
                   </button>
                   <ul className='dropdown-menu'>
@@ -210,9 +210,7 @@ export default function Home() {
                         <button
                           className='btn btn-info w-100 mt-2'
                           onClick={() =>
-                            router.push(
-                              PageRoute.Song + `/${song.id}/update`
-                            )
+                            router.push(PageRoute.Song + `/${song.id}/update`)
                           }
                         >
                           Edit
@@ -268,4 +266,3 @@ export default function Home() {
     </Fragment>
   )
 }
-

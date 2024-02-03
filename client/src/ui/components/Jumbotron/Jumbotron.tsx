@@ -15,4 +15,3 @@ export default function Jumbotron({ title, content }: Props) {
     </div>
   )
 }
-

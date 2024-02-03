@@ -2,7 +2,7 @@ import Cookies from 'js-cookie'
 import { useEffect, useState, Fragment } from 'react'
 import { useRouter } from 'next/router'
 
-import Navbar from '../components/Navbar/Navbar';
+import Navbar from '../components/Navbar/Navbar'
 import Spinner from '../components/Spinner/Spinner'
 import Header from '../components/Head/Head'
 import InputField from '../components/InputField/InputField'
@@ -98,4 +98,3 @@ export default function Login() {
     </Fragment>
   )
 }
-

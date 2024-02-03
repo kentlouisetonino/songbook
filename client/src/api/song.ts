@@ -91,8 +91,7 @@ export function getAllSongByUserAPI({
   axios({
     method: 'get',
     url:
-      process.env.NEXT_PUBLIC_BACKEND_API_ENDPOINT +
-      APIEndpoint.SongAllByUser,
+      process.env.NEXT_PUBLIC_BACKEND_API_ENDPOINT + APIEndpoint.SongAllByUser,
     headers: {
       Authorization: `Bearer ${accessToken}`,
     },
@@ -154,8 +153,7 @@ export function getAllSongByTitleAPI({
   axios({
     method: 'get',
     url:
-      process.env.NEXT_PUBLIC_BACKEND_API_ENDPOINT +
-      APIEndpoint.SongAllByTitle,
+      process.env.NEXT_PUBLIC_BACKEND_API_ENDPOINT + APIEndpoint.SongAllByTitle,
     headers: {
       Authorization: `Bearer ${accessToken}`,
     },
