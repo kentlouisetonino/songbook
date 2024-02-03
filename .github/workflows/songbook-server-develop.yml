@@ -1,12 +1,16 @@
-name: song-book-frontend (develop)
+name: songbook-server (develop)
 
 on:
   push:
     branches:
       - develop
+    paths:
+      - 'server/**'
   pull_request:
     branches:
       - develop
+    paths:
+      - 'server/**'
 permissions:
   checks: write
   contents: write
@@ -15,49 +19,48 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: [ubuntu-20.04]
-        node: [16]
+        os: [ubuntu-latest]
+        node: [18]
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-      - name: Setup node env
+      - name: Setup Node ENV
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node }}
-      - name: Cache node_modules
+      - name: Cache Node Modules
         uses: actions/cache@v3
         with:
           path: ~/.npm
           key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
             ${{ runner.os }}-node-
-      - name: Run build
+      - name: Run Build
         run: |
-          npm install
-          npm run build --if-present
-  
+          yarn install --frozen-lockfile
+          yarn build
+
   clean:
     runs-on: ${{ matrix.os }}
     needs: build
     strategy:
       matrix:
-        os: [ubuntu-20.04]
-        node: [16]
+        os: [ubuntu-latest]
+        node: [18]
     steps:
       - name: Checkout
         uses: actions/checkout@v3
         with:
           ref: ${{ github.head_ref }}
-      - name: Install dependencies
+      - name: Setupt Node ENV
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node }}
+      - name: Run Prettier
         run: |
-          npm install
-      - name: Run linter
-        run: |
-          npm run lint
-      - name: Run prettier
-        run: |
-          npm run format
-      - name: Save changes
+          yarn install --frozen-lockfile
+          yarn run format
+      - name: Save Changes
         run: |
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git config --global user.name "github-actions[bot]"
