@@ -1,18 +1,19 @@
-const ormconfig: any = {
+import { DataSource } from 'typeorm'
+
+// Hard code the values.
+// Process ENV not working properly.
+export const connectionSource = new DataSource({
+  migrationsTableName: 'migrations',
   type: 'mysql',
-  host: process.env.DB_HOST,
-  port: Number(process.env.DB_PORT),
-  username: process.env.DB_USER,
-  password: process.env.DB_ROOT_PASSWORD,
-  database: process.env.DB_NAME,
+  host: 'localhost',
+  port: 3310,
+  username: 'root',
+  password: 'root',
+  database: 'songbook',
+  logging: false,
+  synchronize: false,
+  name: 'default',
   entities: ['dist/src/entities/*.js'],
   migrations: ['dist/src/migrations/*.js'],
-  migrationsTableName: 'migrations',
-  migrationsRun: false,
-  synchronize: false,
-  cli: {
-    migrationsDir: 'src/migrations',
-  },
-}
-
-export default ormconfig
+  ssl: false,
+})

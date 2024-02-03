@@ -1,10 +1,10 @@
+import { HttpStatus, Injectable, NotFoundException } from '@nestjs/common'
 import { InjectRepository } from '@nestjs/typeorm'
 import { Repository } from 'typeorm'
-import { Injectable, HttpStatus, NotFoundException } from '@nestjs/common'
 
 import { Song } from '../entities/Song'
-import { CreateSongInput, UpdateSongInput } from './dto/song.input'
 import { UserService } from '../user/user.service'
+import { CreateSongInput, UpdateSongInput } from './dto/song.input'
 import { DeleteSongOutput } from './dto/song.output'
 
 @Injectable()
@@ -20,7 +20,7 @@ export class SongService {
   }
 
   async getSong(id: number): Promise<Song> {
-    const songDb = await this.songRepository.findOne(id)
+    const songDb = await this.songRepository.findOne({ where: { id: id } })
 
     if (!songDb) {
       throw new NotFoundException('User Id does not exist.')
@@ -31,7 +31,7 @@ export class SongService {
 
   async getSongsByUser(userId: number): Promise<Song[]> {
     return await this.songRepository.find({
-      userId: userId,
+      where: { userId: userId },
     })
   }
 
@@ -60,7 +60,9 @@ export class SongService {
   }
 
   async updateSong(payload: UpdateSongInput): Promise<Song> {
-    const songDb = await this.songRepository.findOne(payload?.id)
+    const songDb = await this.songRepository.findOne({
+      where: { id: payload.id },
+    })
 
     if (!songDb) {
       throw new NotFoundException('User Id does not exist. Use a different Id.')

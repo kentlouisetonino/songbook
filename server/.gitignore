@@ -2,6 +2,7 @@
 /dist
 /node_modules
 /database/data
+/docker/mysql_data
 
 # Logs
 logs

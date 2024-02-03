@@ -1,17 +1,17 @@
+import {
+  ConflictException,
+  HttpStatus,
+  Injectable,
+  NotFoundException,
+} from '@nestjs/common'
+import { ConfigService } from '@nestjs/config'
+import { JwtService } from '@nestjs/jwt'
 import { InjectRepository } from '@nestjs/typeorm'
 import { Repository } from 'typeorm'
-import { JwtService } from '@nestjs/jwt'
-import { ConfigService } from '@nestjs/config'
-import {
-  Injectable,
-  ConflictException,
-  NotFoundException,
-  HttpStatus,
-} from '@nestjs/common'
 
+import { User } from '../entities/User'
 import { CreateUserInput, UpdateUserInput } from './dto/user.input'
 import { DeleteUserOutput } from './dto/user.output'
-import { User } from '../entities/User'
 
 @Injectable()
 export class UserService {
@@ -28,7 +28,7 @@ export class UserService {
   }
 
   async getUserById(id: number): Promise<User> {
-    const userDb = await this.userRepository.findOne(id)
+    const userDb = await this.userRepository.findOne({ where: { id: id } })
 
     if (!userDb) {
       throw new NotFoundException('User Id does not exist.')
@@ -39,7 +39,7 @@ export class UserService {
 
   async getUserByEmail(email: string): Promise<User> {
     const userDb = await this.userRepository.findOne({
-      email: email,
+      where: { email: email },
     })
 
     if (!userDb) {
@@ -51,7 +51,7 @@ export class UserService {
 
   async createUser(payload: CreateUserInput): Promise<User> {
     const userDb = await this.userRepository.findOne({
-      email: payload.email,
+      where: { email: payload.email },
     })
 
     if (userDb) {
@@ -75,7 +75,9 @@ export class UserService {
   }
 
   async updateUser(payload: UpdateUserInput): Promise<User> {
-    const userDb = await this.userRepository.findOne(payload?.id)
+    const userDb = await this.userRepository.findOne({
+      where: { id: payload.id },
+    })
 
     if (!userDb) {
       throw new NotFoundException('User Id does not exist. Use a different Id.')
