@@ -7,7 +7,12 @@ interface Props {
   onChange?: any
 }
 
-export default function TextAreaField({ label, placeholder, value, onChange }: Props) {
+export default function TextAreaField({
+  label,
+  placeholder,
+  value,
+  onChange,
+}: Props) {
   return (
     <Fragment>
       <label className='form-label fw-bold'>{label}</label>
@@ -22,4 +27,3 @@ export default function TextAreaField({ label, placeholder, value, onChange }: P
     </Fragment>
   )
 }
-

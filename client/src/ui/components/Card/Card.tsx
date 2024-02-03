@@ -18,4 +18,3 @@ export default function Card({ title, content, link, linkName }: Props) {
     </div>
   )
 }
-

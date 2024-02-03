@@ -86,4 +86,3 @@ export default function Navbar({ currentPage }: Props) {
     </nav>
   )
 }
-

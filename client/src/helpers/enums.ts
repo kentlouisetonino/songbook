@@ -22,4 +22,3 @@ export enum PageRoute {
   Login = '/login',
   Register = '/register',
 }
-
