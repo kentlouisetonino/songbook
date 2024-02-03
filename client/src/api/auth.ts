@@ -1,7 +1,7 @@
 import axios from 'axios'
 import Cookies from 'js-cookie'
-import Swal from 'sweetalert2'
 import { APIEndpoint, CookiesStorage, PageRoute } from 'src/helpers/enums'
+import Swal from 'sweetalert2'
 
 export function loginAPI({
   email,
