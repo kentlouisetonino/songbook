@@ -1,4 +1,4 @@
-name: songbook-frontend (develop)
+name: songbook-client (develop)
 
 on:
   push:
