@@ -4,13 +4,13 @@ on:
   push:
     branches:
       - develop
-    push:
-      - 'client/**'
+    paths:
+      - client/**
   pull_request:
     branches:
       - develop
-    push:
-      - 'client/**'
+    paths:
+      - client/**
 permissions:
   checks: write
   contents: write

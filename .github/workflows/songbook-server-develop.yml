@@ -5,12 +5,12 @@ on:
     branches:
       - develop
     paths:
-      - 'server/**'
+      - server/**
   pull_request:
     branches:
       - develop
     paths:
-      - 'server/**'
+      - server/**
 permissions:
   checks: write
   contents: write
