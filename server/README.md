@@ -1,4 +1,4 @@
-## Setup
+## Server-Side Guide
 > - Create a `.env` file in the root directory and put the key value pair.
 ```bash
 # * This is needed for authentication.
