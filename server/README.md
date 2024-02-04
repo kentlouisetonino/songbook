@@ -6,7 +6,7 @@ AUTH_JWT_SECRET=jwtTest123456
 AUTH_PASSWORD_SECRET=passwordTest123456
 
 # * Connecting with MySQL database.
-DB_HOST=127.0.0.1
+DB_HOST=localhost
 DB_PORT=3310
 DB_NAME=songbook
 DB_USER=root
