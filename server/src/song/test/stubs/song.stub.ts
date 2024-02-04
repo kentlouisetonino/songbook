@@ -1,6 +1,6 @@
-import { Song } from 'src/entities/Song'
+import { Song } from 'src/entities/Song';
 
-import { DeleteSongOutput } from 'src/song/dto/song.output'
+import { DeleteSongOutput } from 'src/song/dto/song.output';
 
 export const songStub = (): Song => {
   return {
@@ -23,12 +23,12 @@ export const songStub = (): Song => {
     },
     createdAt: new Date('2022-09-21 13:38:05.384632000'),
     updatedAt: new Date('2022-09-21 18:19:15'),
-  }
-}
+  };
+};
 
 export const deleteSongStub = (): DeleteSongOutput => {
   return {
     status: 200,
     message: 'Song successfully deleted.',
-  }
-}
+  };
+};

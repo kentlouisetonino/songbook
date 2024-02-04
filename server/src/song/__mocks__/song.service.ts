@@ -1,4 +1,4 @@
-import { songStub, deleteSongStub } from '../test/stubs/song.stub'
+import { songStub, deleteSongStub } from '../test/stubs/song.stub';
 
 export const SongService = jest.fn().mockReturnValue({
   getSongs: jest.fn().mockReturnValue([songStub()]),
@@ -9,4 +9,4 @@ export const SongService = jest.fn().mockReturnValue({
   createSong: jest.fn().mockResolvedValue(songStub()),
   updateSong: jest.fn().mockResolvedValue(songStub()),
   deleteSong: jest.fn().mockResolvedValue(deleteSongStub()),
-})
+});

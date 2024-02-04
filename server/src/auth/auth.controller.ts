@@ -1,8 +1,8 @@
-import { Controller, Post, Req } from '@nestjs/common'
-import { Request } from 'express'
+import { Controller, Post, Req } from '@nestjs/common';
+import { Request } from 'express';
 
-import { LoginOutput } from './dto/auth.output'
-import { AuthService } from './auth.service'
+import { LoginOutput } from './dto/auth.output';
+import { AuthService } from './auth.service';
 
 @Controller('auth')
 export class AuthController {
@@ -10,6 +10,6 @@ export class AuthController {
 
   @Post('login')
   loginUser(@Req() req: Request): Promise<LoginOutput> {
-    return this.authService.loginUser(req.body)
+    return this.authService.loginUser(req.body);
   }
 }

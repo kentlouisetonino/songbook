@@ -16,4 +16,4 @@ export const config = () => ({
       migrationsDir: 'src/migrations',
     },
   },
-})
+});

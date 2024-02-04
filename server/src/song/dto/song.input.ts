@@ -1,41 +1,41 @@
-import { IsNotEmpty, IsString, IsNumber, IsOptional } from 'class-validator'
+import { IsNotEmpty, IsString, IsNumber, IsOptional } from 'class-validator';
 
 export class CreateSongInput {
   @IsNotEmpty()
   @IsString()
-  title: string
+  title: string;
 
   @IsNotEmpty()
   @IsString()
-  artist: string
+  artist: string;
 
   @IsNotEmpty()
   @IsString()
-  lyrics: string
+  lyrics: string;
 
   @IsNotEmpty()
   @IsNumber()
-  userId: number
+  userId: number;
 }
 
 export class UpdateSongInput {
   @IsNotEmpty()
   @IsString()
-  id: number
+  id: number;
 
   @IsOptional()
   @IsString()
-  title?: string
+  title?: string;
 
   @IsOptional()
   @IsString()
-  artist?: string
+  artist?: string;
 
   @IsOptional()
   @IsString()
-  lyrics?: string
+  lyrics?: string;
 
   @IsNotEmpty()
   @IsNumber()
-  userId: number
+  userId: number;
 }

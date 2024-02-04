@@ -5,36 +5,36 @@ import {
   CreateDateColumn,
   UpdateDateColumn,
   OneToMany,
-} from 'typeorm'
+} from 'typeorm';
 
-import { Song } from './Song'
+import { Song } from './Song';
 
 @Entity()
 export class User {
   @PrimaryGeneratedColumn('increment')
-  id: number
+  id: number;
 
   @Column({ name: 'first_name' })
-  firstName: string
+  firstName: string;
 
   @Column({ name: 'last_name' })
-  lastName: string
+  lastName: string;
 
   @Column({ unique: true })
-  email: string
+  email: string;
 
   @Column()
-  password: string
+  password: string;
 
   @Column({ name: 'access_token', nullable: true })
-  accessToken?: string
+  accessToken?: string;
 
   @OneToMany(() => Song, (song) => song.user)
-  songs?: Song[]
+  songs?: Song[];
 
   @CreateDateColumn({ name: 'created_at' })
-  createdAt: Date
+  createdAt: Date;
 
   @UpdateDateColumn({ name: 'updated_at' })
-  updatedAt: Date
+  updatedAt: Date;
 }

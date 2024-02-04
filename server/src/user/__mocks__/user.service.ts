@@ -1,4 +1,4 @@
-import { userStub, deleteUserStub } from '../test/stubs/user.stub'
+import { userStub, deleteUserStub } from '../test/stubs/user.stub';
 
 export const UserService = jest.fn().mockReturnValue({
   getUsers: jest.fn().mockReturnValue([userStub()]),
@@ -7,4 +7,4 @@ export const UserService = jest.fn().mockReturnValue({
   createUser: jest.fn().mockResolvedValue(userStub()),
   updateUser: jest.fn().mockResolvedValue(userStub()),
   deleteUser: jest.fn().mockResolvedValue(deleteUserStub()),
-})
+});

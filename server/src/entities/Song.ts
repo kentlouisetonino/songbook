@@ -7,36 +7,36 @@ import {
   ManyToOne,
   JoinColumn,
   Index,
-} from 'typeorm'
+} from 'typeorm';
 
-import { User } from './User'
+import { User } from './User';
 
 @Entity()
 export class Song {
   @PrimaryGeneratedColumn('increment')
-  id: number
+  id: number;
 
   @Index({ fulltext: true })
   @Column()
-  title: string
+  title: string;
 
   @Index({ fulltext: true })
   @Column()
-  artist: string
+  artist: string;
 
   @Column({ type: 'longtext' })
-  lyrics: string
+  lyrics: string;
 
   @Column({ name: 'user_id' })
-  userId: number
+  userId: number;
 
   @ManyToOne(() => User, (user) => user.songs)
   @JoinColumn({ name: 'user_id' })
-  user: User
+  user: User;
 
   @CreateDateColumn({ name: 'created_at' })
-  createdAt: Date
+  createdAt: Date;
 
   @UpdateDateColumn({ name: 'updated_at' })
-  updatedAt: Date
+  updatedAt: Date;
 }

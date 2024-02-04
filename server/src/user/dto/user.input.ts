@@ -1,45 +1,45 @@
-import { IsNotEmpty, IsEmail, IsString, IsOptional } from 'class-validator'
+import { IsNotEmpty, IsEmail, IsString, IsOptional } from 'class-validator';
 
 export class CreateUserInput {
   @IsNotEmpty()
   @IsString()
-  firstName: string
+  firstName: string;
 
   @IsNotEmpty()
   @IsString()
-  lastName: string
+  lastName: string;
 
   @IsNotEmpty()
   @IsEmail()
-  email: string
+  email: string;
 
   @IsNotEmpty()
   @IsString()
-  password: string
+  password: string;
 }
 
 export class UpdateUserInput {
   @IsNotEmpty()
   @IsString()
-  id: number
+  id: number;
 
   @IsOptional()
   @IsString()
-  firstName?: string
+  firstName?: string;
 
   @IsOptional()
   @IsString()
-  lastName?: string
+  lastName?: string;
 
   @IsOptional()
   @IsString()
-  email?: string
+  email?: string;
 
   @IsOptional()
   @IsString()
-  password?: string
+  password?: string;
 
   @IsOptional()
   @IsString()
-  accessToken?: string
+  accessToken?: string;
 }

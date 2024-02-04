@@ -1,11 +1,11 @@
-import { IsNotEmpty, IsString, IsNumber } from 'class-validator'
+import { IsNotEmpty, IsString, IsNumber } from 'class-validator';
 
 export class DeleteSongOutput {
   @IsNotEmpty()
   @IsNumber()
-  status: number
+  status: number;
 
   @IsNotEmpty()
   @IsString()
-  message: string
+  message: string;
 }
