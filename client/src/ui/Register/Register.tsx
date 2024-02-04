@@ -29,7 +29,7 @@ export default function Register() {
       email: email,
       password: password,
       setIsLoading: setIsLoading,
-      router: router,
+      router: router
     });
   };
 
@@ -39,7 +39,7 @@ export default function Register() {
         firstName: firstName,
         lastName: lastName,
         email: email,
-        password: password,
+        password: password
       })
       .then((valid) => {
         if (valid) setIsInputsValid(true);

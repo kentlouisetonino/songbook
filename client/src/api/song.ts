@@ -11,7 +11,7 @@ export function createSongAPI({
   lyrics,
   userId,
   setIsLoading,
-  router,
+  router
 }: {
   accessToken: string;
   title: string;
@@ -25,14 +25,14 @@ export function createSongAPI({
     method: 'post',
     url: process.env.NEXT_PUBLIC_BACKEND_API_ENDPOINT + APIEndpoint.SongCreate,
     headers: {
-      Authorization: `Bearer ${accessToken}`,
+      Authorization: `Bearer ${accessToken}`
     },
     data: {
       title: title,
       artist: artist,
       lyrics: lyrics,
-      userId: userId,
-    },
+      userId: userId
+    }
   })
     .then(() => {
       setIsLoading(false);
@@ -52,7 +52,7 @@ export function getSongAPI({
   songId,
   setTitle,
   setArtist,
-  setLyrics,
+  setLyrics
 }: {
   accessToken: string;
   songId: any;
@@ -64,11 +64,11 @@ export function getSongAPI({
     method: 'get',
     url: process.env.NEXT_PUBLIC_BACKEND_API_ENDPOINT + APIEndpoint.Song,
     headers: {
-      Authorization: `Bearer ${accessToken}`,
+      Authorization: `Bearer ${accessToken}`
     },
     params: {
-      id: Number(songId),
-    },
+      id: Number(songId)
+    }
   })
     .then((res) => {
       setTitle(res?.data?.title);
@@ -83,7 +83,7 @@ export function getSongAPI({
 export function getAllSongByUserAPI({
   accessToken,
   userId,
-  setSongs,
+  setSongs
 }: {
   accessToken: string;
   userId: number;
@@ -97,11 +97,11 @@ export function getAllSongByUserAPI({
       process.env.NEXT_PUBLIC_BACKEND_API_ENDPOINT + APIEndpoint.SongAllByUser,
     headers: {
       'Content-Type': 'application/json',
-      Authorization: `Bearer ${accessToken}`,
+      Authorization: `Bearer ${accessToken}`
     },
     params: {
-      id: userId,
-    },
+      id: userId
+    }
   })
     .then((res) => {
       setSongs(res.data);
@@ -115,7 +115,7 @@ export function getAllSongByArtistAPI({
   accessToken,
   search,
   userId,
-  setSongs,
+  setSongs
 }: {
   accessToken: string;
   search: string;
@@ -128,12 +128,12 @@ export function getAllSongByArtistAPI({
       process.env.NEXT_PUBLIC_BACKEND_API_ENDPOINT +
       APIEndpoint.SongAllByArtist,
     headers: {
-      Authorization: `Bearer ${accessToken}`,
+      Authorization: `Bearer ${accessToken}`
     },
     params: {
       search: search,
-      userId: userId,
-    },
+      userId: userId
+    }
   })
     .then((res) => {
       setSongs(res.data);
@@ -147,7 +147,7 @@ export function getAllSongByTitleAPI({
   accessToken,
   search,
   userId,
-  setSongs,
+  setSongs
 }: {
   accessToken: string;
   search: string;
@@ -159,12 +159,12 @@ export function getAllSongByTitleAPI({
     url:
       process.env.NEXT_PUBLIC_BACKEND_API_ENDPOINT + APIEndpoint.SongAllByTitle,
     headers: {
-      Authorization: `Bearer ${accessToken}`,
+      Authorization: `Bearer ${accessToken}`
     },
     params: {
       search: search,
-      userId: userId,
-    },
+      userId: userId
+    }
   })
     .then((res) => {
       setSongs(res.data);
@@ -182,7 +182,7 @@ export function updateSongAPI({
   lyrics,
   userId,
   setIsLoading,
-  router,
+  router
 }: {
   accessToken: string;
   songId: any;
@@ -197,15 +197,15 @@ export function updateSongAPI({
     method: 'post',
     url: process.env.NEXT_PUBLIC_BACKEND_API_ENDPOINT + APIEndpoint.SongUpdate,
     headers: {
-      Authorization: `Bearer ${accessToken}`,
+      Authorization: `Bearer ${accessToken}`
     },
     data: {
       id: Number(songId),
       title: title,
       artist: artist,
       lyrics: lyrics,
-      userId: userId,
-    },
+      userId: userId
+    }
   })
     .then(() => {
       setIsLoading(false);
@@ -227,7 +227,7 @@ export function updateSongAPI({
 export function deleteSongAPI({
   accessToken,
   songId,
-  router,
+  router
 }: {
   accessToken: string;
   songId: number;
@@ -237,11 +237,11 @@ export function deleteSongAPI({
     method: 'delete',
     url: process.env.NEXT_PUBLIC_BACKEND_API_ENDPOINT + APIEndpoint.SongDelete,
     headers: {
-      Authorization: `Bearer ${accessToken}`,
+      Authorization: `Bearer ${accessToken}`
     },
     params: {
-      id: songId,
-    },
+      id: songId
+    }
   })
     .then(() => {
       Swal.fire('Song Successfully Deleted', 'Reload Page', 'success').then(

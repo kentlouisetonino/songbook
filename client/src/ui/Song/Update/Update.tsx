@@ -37,7 +37,7 @@ export default function Update() {
       lyrics: lyrics,
       userId: userId,
       setIsLoading: setIsLoading,
-      router: router,
+      router: router
     });
   };
 
@@ -60,7 +60,7 @@ export default function Update() {
         getUserAPI({
           accessToken: accessToken,
           userId: decodedAccessToken?.id,
-          setUserInfo: setUserInfo,
+          setUserInfo: setUserInfo
         });
 
         getSongAPI({
@@ -68,7 +68,7 @@ export default function Update() {
           songId: songId,
           setTitle: setTitle,
           setArtist: setArtist,
-          setLyrics: setLyrics,
+          setLyrics: setLyrics
         });
       }
     }
@@ -79,7 +79,7 @@ export default function Update() {
       .isValid({
         title: title,
         artist: artist,
-        lyrics: lyrics,
+        lyrics: lyrics
       })
       .then((valid) => {
         if (valid) setIsInputsValid(true);

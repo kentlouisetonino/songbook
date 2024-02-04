@@ -31,7 +31,7 @@ export default function Details() {
           songId: songId,
           setTitle: setTitle,
           setArtist: setArtist,
-          setLyrics: setLyrics,
+          setLyrics: setLyrics
         });
       }
     }

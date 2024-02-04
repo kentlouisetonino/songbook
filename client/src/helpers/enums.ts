@@ -8,11 +8,11 @@ export enum APIEndpoint {
   SongDelete = '/song/delete',
   SongAllByUser = '/song/all/user',
   SongAllByArtist = '/song/all/artist',
-  SongAllByTitle = '/song/all/title',
+  SongAllByTitle = '/song/all/title'
 }
 
 export enum CookiesStorage {
-  AccessToken = 'accessToken',
+  AccessToken = 'accessToken'
 }
 
 export enum PageRoute {
@@ -20,5 +20,5 @@ export enum PageRoute {
   Song = '/song',
   SongAdd = '/song/add',
   Login = '/login',
-  Register = '/register',
+  Register = '/register'
 }

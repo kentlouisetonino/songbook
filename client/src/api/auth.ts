@@ -9,7 +9,7 @@ export function loginAPI({
   email,
   password,
   setIsLoading,
-  router,
+  router
 }: {
   email: string;
   password: string;
@@ -21,8 +21,8 @@ export function loginAPI({
     url: process.env.NEXT_PUBLIC_BACKEND_API_ENDPOINT + APIEndpoint.AuthLogin,
     data: {
       email: email,
-      password: password,
-    },
+      password: password
+    }
   })
     .then((res) => {
       Cookies.set(CookiesStorage.AccessToken, res.data.accessToken);
@@ -38,7 +38,7 @@ export function loginAPI({
       Swal.fire({
         icon: 'error',
         title: 'Something Went Wrong!',
-        text: err.response.data.message,
+        text: err.response.data.message
       });
     });
 }

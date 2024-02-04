@@ -5,7 +5,7 @@ import {
   deleteSongAPI,
   getAllSongByArtistAPI,
   getAllSongByTitleAPI,
-  getAllSongByUserAPI,
+  getAllSongByUserAPI
 } from 'src/api/song';
 import { getUserAPI } from 'src/api/user';
 import { CookiesStorage, PageRoute } from 'src/helpers/enums';
@@ -31,7 +31,7 @@ export default function Home() {
     deleteSongAPI({
       accessToken: accessToken,
       songId: songId,
-      router: router,
+      router: router
     });
   }
 
@@ -41,7 +41,7 @@ export default function Home() {
         getAllSongByUserAPI({
           accessToken: accessToken,
           userId: userId,
-          setSongs: setSongs,
+          setSongs: setSongs
         });
 
         break;
@@ -50,7 +50,7 @@ export default function Home() {
           accessToken: accessToken,
           search: filterValue,
           userId: userId,
-          setSongs: setSongs,
+          setSongs: setSongs
         });
 
         break;
@@ -59,7 +59,7 @@ export default function Home() {
           accessToken: accessToken,
           search: filterValue,
           userId: userId,
-          setSongs: setSongs,
+          setSongs: setSongs
         });
 
         break;
@@ -87,7 +87,7 @@ export default function Home() {
         getUserAPI({
           accessToken: accessToken,
           userId: decodedAccessToken?.id ?? '',
-          setUserInfo: setUserInfo,
+          setUserInfo: setUserInfo
         });
       }
     }
@@ -98,7 +98,7 @@ export default function Home() {
       getAllSongByUserAPI({
         accessToken: accessToken,
         userId: userId,
-        setSongs: setSongs,
+        setSongs: setSongs
       });
     }
   }, [accessToken, filterBy]);

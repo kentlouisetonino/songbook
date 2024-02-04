@@ -25,7 +25,7 @@ export default function Login() {
       email: email,
       password: password,
       setIsLoading: setIsLoading,
-      router: router,
+      router: router
     });
   };
 

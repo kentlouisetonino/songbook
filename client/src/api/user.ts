@@ -6,7 +6,7 @@ import { APIEndpoint, PageRoute } from 'src/helpers/enums';
 export function getUserAPI({
   accessToken,
   userId,
-  setUserInfo,
+  setUserInfo
 }: {
   accessToken: string;
   userId: string;
@@ -16,11 +16,11 @@ export function getUserAPI({
     method: 'get',
     url: process.env.NEXT_PUBLIC_BACKEND_API_ENDPOINT + APIEndpoint.User,
     headers: {
-      Authorization: `Bearer ${accessToken}`,
+      Authorization: `Bearer ${accessToken}`
     },
     params: {
-      id: userId,
-    },
+      id: userId
+    }
   })
     .then((res) => {
       setUserInfo(res.data);
@@ -36,7 +36,7 @@ export function createUserAPI({
   email,
   password,
   setIsLoading,
-  router,
+  router
 }: {
   firstName: string;
   lastName: string;
@@ -52,8 +52,8 @@ export function createUserAPI({
       firstName: firstName,
       lastName: lastName,
       email: email,
-      password: password,
-    },
+      password: password
+    }
   })
     .then(() => {
       setIsLoading(false);
@@ -68,7 +68,7 @@ export function createUserAPI({
       Swal.fire({
         icon: 'error',
         title: 'Something Went Wrong!',
-        text: err.response.data.message,
+        text: err.response.data.message
       });
     });
 }

@@ -35,7 +35,7 @@ export default function Add() {
       lyrics: lyrics,
       userId: userId,
       setIsLoading: setIsLoading,
-      router: router,
+      router: router
     });
   };
 
@@ -58,7 +58,7 @@ export default function Add() {
         getUserAPI({
           accessToken: accessToken,
           userId: decodedAccessToken?.id,
-          setUserInfo: setUserInfo,
+          setUserInfo: setUserInfo
         });
       }
     }
@@ -69,7 +69,7 @@ export default function Add() {
       .isValid({
         title: title,
         artist: artist,
-        lyrics: lyrics,
+        lyrics: lyrics
       })
       .then((valid) => {
         if (valid) setIsInputsValid(true);

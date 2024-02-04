@@ -11,7 +11,7 @@ export default function TextAreaField({
   label,
   placeholder,
   value,
-  onChange,
+  onChange
 }: Props) {
   return (
     <Fragment>

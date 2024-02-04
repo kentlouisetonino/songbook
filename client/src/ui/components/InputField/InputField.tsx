@@ -13,7 +13,7 @@ export default function InputField({
   placeholder,
   value,
   onChange,
-  domId,
+  domId
 }: Props) {
   return (
     <>
