@@ -1,11 +1,11 @@
-import { Fragment } from 'react'
+import { Fragment } from 'react';
 
 export default function PasswordCheckbox() {
   const showPassword = () => {
-    const x: any = document.getElementById('password')
-    if (x && x.type === 'password') x.type = 'text'
-    else x.type = 'password'
-  }
+    const x: any = document.getElementById('password');
+    if (x && x.type === 'password') x.type = 'text';
+    else x.type = 'password';
+  };
 
   return (
     <Fragment>
@@ -16,5 +16,5 @@ export default function PasswordCheckbox() {
       />
       <label>Show Password</label>
     </Fragment>
-  )
+  );
 }

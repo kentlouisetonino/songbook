@@ -1,8 +1,8 @@
-import axios from 'axios'
-import Swal from 'sweetalert2'
+import axios from 'axios';
+import Swal from 'sweetalert2';
 
-import { Dispatch } from 'react'
-import { APIEndpoint, PageRoute } from 'src/helpers/enums'
+import { Dispatch } from 'react';
+import { APIEndpoint, PageRoute } from 'src/helpers/enums';
 
 export function createSongAPI({
   accessToken,
@@ -13,13 +13,13 @@ export function createSongAPI({
   setIsLoading,
   router,
 }: {
-  accessToken: string
-  title: string
-  artist: string
-  lyrics: string
-  userId: number
-  setIsLoading: any
-  router: any
+  accessToken: string;
+  title: string;
+  artist: string;
+  lyrics: string;
+  userId: number;
+  setIsLoading: any;
+  router: any;
 }) {
   axios({
     method: 'post',
@@ -35,16 +35,16 @@ export function createSongAPI({
     },
   })
     .then(() => {
-      setIsLoading(false)
+      setIsLoading(false);
 
       Swal.fire('Success', 'Go Back to Home Page', 'success').then(() => {
-        router.push(PageRoute.Root)
-      })
+        router.push(PageRoute.Root);
+      });
     })
     .catch((err) => {
-      setIsLoading(false)
-      console.error(err.response.data.message)
-    })
+      setIsLoading(false);
+      console.error(err.response.data.message);
+    });
 }
 
 export function getSongAPI({
@@ -54,11 +54,11 @@ export function getSongAPI({
   setArtist,
   setLyrics,
 }: {
-  accessToken: string
-  songId: any
-  setTitle: any
-  setArtist: any
-  setLyrics: any
+  accessToken: string;
+  songId: any;
+  setTitle: any;
+  setArtist: any;
+  setLyrics: any;
 }) {
   axios({
     method: 'get',
@@ -71,13 +71,13 @@ export function getSongAPI({
     },
   })
     .then((res) => {
-      setTitle(res?.data?.title)
-      setArtist(res?.data?.artist)
-      setLyrics(res?.data?.lyrics)
+      setTitle(res?.data?.title);
+      setArtist(res?.data?.artist);
+      setLyrics(res?.data?.lyrics);
     })
     .catch((err) => {
-      console.error(err.response.data.message)
-    })
+      console.error(err.response.data.message);
+    });
 }
 
 export function getAllSongByUserAPI({
@@ -85,11 +85,11 @@ export function getAllSongByUserAPI({
   userId,
   setSongs,
 }: {
-  accessToken: string
-  userId: number
-  setSongs: Dispatch<any>
+  accessToken: string;
+  userId: number;
+  setSongs: Dispatch<any>;
 }) {
-  console.log('accessToken', accessToken)
+  console.log('accessToken', accessToken);
 
   axios({
     method: 'get',
@@ -104,11 +104,11 @@ export function getAllSongByUserAPI({
     },
   })
     .then((res) => {
-      setSongs(res.data)
+      setSongs(res.data);
     })
     .catch((err) => {
-      console.error(err.response.data.message)
-    })
+      console.error(err.response.data.message);
+    });
 }
 
 export function getAllSongByArtistAPI({
@@ -117,10 +117,10 @@ export function getAllSongByArtistAPI({
   userId,
   setSongs,
 }: {
-  accessToken: string
-  search: string
-  userId: number
-  setSongs: any
+  accessToken: string;
+  search: string;
+  userId: number;
+  setSongs: any;
 }) {
   axios({
     method: 'get',
@@ -136,11 +136,11 @@ export function getAllSongByArtistAPI({
     },
   })
     .then((res) => {
-      setSongs(res.data)
+      setSongs(res.data);
     })
     .catch((err) => {
-      console.error(err.response.data.message)
-    })
+      console.error(err.response.data.message);
+    });
 }
 
 export function getAllSongByTitleAPI({
@@ -149,10 +149,10 @@ export function getAllSongByTitleAPI({
   userId,
   setSongs,
 }: {
-  accessToken: string
-  search: string
-  userId: number
-  setSongs: any
+  accessToken: string;
+  search: string;
+  userId: number;
+  setSongs: any;
 }) {
   axios({
     method: 'get',
@@ -167,11 +167,11 @@ export function getAllSongByTitleAPI({
     },
   })
     .then((res) => {
-      setSongs(res.data)
+      setSongs(res.data);
     })
     .catch((err) => {
-      console.error(err.response.data.message)
-    })
+      console.error(err.response.data.message);
+    });
 }
 
 export function updateSongAPI({
@@ -184,14 +184,14 @@ export function updateSongAPI({
   setIsLoading,
   router,
 }: {
-  accessToken: string
-  songId: any
-  title: string
-  artist: string
-  lyrics: string
-  userId: number
-  setIsLoading: any
-  router: any
+  accessToken: string;
+  songId: any;
+  title: string;
+  artist: string;
+  lyrics: string;
+  userId: number;
+  setIsLoading: any;
+  router: any;
 }) {
   axios({
     method: 'post',
@@ -208,20 +208,20 @@ export function updateSongAPI({
     },
   })
     .then(() => {
-      setIsLoading(false)
+      setIsLoading(false);
 
       Swal.fire(
         'Song Successfully Updated',
         'Go Back to Home Page',
         'success'
       ).then(() => {
-        router.push(PageRoute.Root)
-      })
+        router.push(PageRoute.Root);
+      });
     })
     .catch((err) => {
-      setIsLoading(false)
-      console.error(err.response.data.message)
-    })
+      setIsLoading(false);
+      console.error(err.response.data.message);
+    });
 }
 
 export function deleteSongAPI({
@@ -229,9 +229,9 @@ export function deleteSongAPI({
   songId,
   router,
 }: {
-  accessToken: string
-  songId: number
-  router: any
+  accessToken: string;
+  songId: number;
+  router: any;
 }) {
   axios({
     method: 'delete',
@@ -246,11 +246,11 @@ export function deleteSongAPI({
     .then(() => {
       Swal.fire('Song Successfully Deleted', 'Reload Page', 'success').then(
         () => {
-          router.reload()
+          router.reload();
         }
-      )
+      );
     })
     .catch((err) => {
-      console.error(err.response.data.message)
-    })
+      console.error(err.response.data.message);
+    });
 }

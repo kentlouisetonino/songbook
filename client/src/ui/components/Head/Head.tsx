@@ -1,7 +1,7 @@
-import Head from 'next/head'
+import Head from 'next/head';
 
 interface Props {
-  title?: string
+  title?: string;
 }
 
 export default function Header({ title }: Props) {
@@ -10,5 +10,5 @@ export default function Header({ title }: Props) {
       <link rel='shortcut icon' href='head.ico' />
       <title>{title}</title>
     </Head>
-  )
+  );
 }

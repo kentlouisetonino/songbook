@@ -1,9 +1,9 @@
-import axios from 'axios'
-import Cookies from 'js-cookie'
-import { NextRouter } from 'next/router'
-import { Dispatch, SetStateAction } from 'react'
-import { APIEndpoint, CookiesStorage, PageRoute } from 'src/helpers/enums'
-import Swal from 'sweetalert2'
+import axios from 'axios';
+import Cookies from 'js-cookie';
+import { NextRouter } from 'next/router';
+import { Dispatch, SetStateAction } from 'react';
+import { APIEndpoint, CookiesStorage, PageRoute } from 'src/helpers/enums';
+import Swal from 'sweetalert2';
 
 export function loginAPI({
   email,
@@ -11,10 +11,10 @@ export function loginAPI({
   setIsLoading,
   router,
 }: {
-  email: string
-  password: string
-  setIsLoading: Dispatch<SetStateAction<boolean>>
-  router: NextRouter
+  email: string;
+  password: string;
+  setIsLoading: Dispatch<SetStateAction<boolean>>;
+  router: NextRouter;
 }) {
   axios({
     method: 'post',
@@ -25,20 +25,20 @@ export function loginAPI({
     },
   })
     .then((res) => {
-      Cookies.set(CookiesStorage.AccessToken, res.data.accessToken)
-      setIsLoading(false)
+      Cookies.set(CookiesStorage.AccessToken, res.data.accessToken);
+      setIsLoading(false);
 
       Swal.fire('Success', 'Go to Home Page', 'success').then(() => {
-        router.push(PageRoute.Root)
-      })
+        router.push(PageRoute.Root);
+      });
     })
     .catch((err) => {
-      setIsLoading(false)
+      setIsLoading(false);
 
       Swal.fire({
         icon: 'error',
         title: 'Something Went Wrong!',
         text: err.response.data.message,
-      })
-    })
+      });
+    });
 }

@@ -1,38 +1,38 @@
-import Cookies from 'js-cookie'
-import { useRouter } from 'next/router'
-import { Fragment, useEffect, useState } from 'react'
+import Cookies from 'js-cookie';
+import { useRouter } from 'next/router';
+import { Fragment, useEffect, useState } from 'react';
 import {
   deleteSongAPI,
   getAllSongByArtistAPI,
   getAllSongByTitleAPI,
   getAllSongByUserAPI,
-} from 'src/api/song'
-import { getUserAPI } from 'src/api/user'
-import { CookiesStorage, PageRoute } from 'src/helpers/enums'
-import decodedToken from '../../helpers/decode-token'
-import Card from '../components/Card/Card'
-import Footer from '../components/Footer/Footer'
-import Header from '../components/Head/Head'
-import Jumbotron from '../components/Jumbotron/Jumbotron'
-import Navbar from '../components/Navbar/Navbar'
-import Sidebar from '../components/Sidebar/Sidebar'
+} from 'src/api/song';
+import { getUserAPI } from 'src/api/user';
+import { CookiesStorage, PageRoute } from 'src/helpers/enums';
+import decodedToken from '../../helpers/decode-token';
+import Card from '../components/Card/Card';
+import Footer from '../components/Footer/Footer';
+import Header from '../components/Head/Head';
+import Jumbotron from '../components/Jumbotron/Jumbotron';
+import Navbar from '../components/Navbar/Navbar';
+import Sidebar from '../components/Sidebar/Sidebar';
 
 export default function Home() {
-  const router = useRouter()
-  const [isLoggedIn, setIsLoggedIn] = useState(false)
-  const [userId, setUserId] = useState(0)
-  const [accessToken, setAccessToken] = useState('')
-  const [userInfo, setUserInfo] = useState<any>()
-  const [songs, setSongs] = useState<any>([])
-  const [filterBy, setFilterBy] = useState('all')
-  const [filterValue, setFilterValue] = useState('')
+  const router = useRouter();
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [userId, setUserId] = useState(0);
+  const [accessToken, setAccessToken] = useState('');
+  const [userInfo, setUserInfo] = useState<any>();
+  const [songs, setSongs] = useState<any>([]);
+  const [filterBy, setFilterBy] = useState('all');
+  const [filterValue, setFilterValue] = useState('');
 
   function onDeleteSong(songId: number) {
     deleteSongAPI({
       accessToken: accessToken,
       songId: songId,
       router: router,
-    })
+    });
   }
 
   function onFilterBySearch() {
@@ -42,56 +42,56 @@ export default function Home() {
           accessToken: accessToken,
           userId: userId,
           setSongs: setSongs,
-        })
+        });
 
-        break
+        break;
       case 'artist':
         getAllSongByArtistAPI({
           accessToken: accessToken,
           search: filterValue,
           userId: userId,
           setSongs: setSongs,
-        })
+        });
 
-        break
+        break;
       case 'title':
         getAllSongByTitleAPI({
           accessToken: accessToken,
           search: filterValue,
           userId: userId,
           setSongs: setSongs,
-        })
+        });
 
-        break
+        break;
       default:
-        break
+        break;
     }
   }
 
   useEffect(() => {
-    const accessToken = Cookies.get(CookiesStorage.AccessToken)
+    const accessToken = Cookies.get(CookiesStorage.AccessToken);
 
     if (!accessToken) {
-      router.push(PageRoute.Root)
+      router.push(PageRoute.Root);
     } else {
-      const decodedAccessToken: any = decodedToken({ token: accessToken })
+      const decodedAccessToken: any = decodedToken({ token: accessToken });
 
       if (!decodedAccessToken) {
-        Cookies.remove(CookiesStorage.AccessToken)
-        router.push(PageRoute.Root)
+        Cookies.remove(CookiesStorage.AccessToken);
+        router.push(PageRoute.Root);
       } else {
-        setIsLoggedIn(true)
-        setAccessToken(accessToken)
-        setUserId(decodedAccessToken?.id ?? '')
+        setIsLoggedIn(true);
+        setAccessToken(accessToken);
+        setUserId(decodedAccessToken?.id ?? '');
 
         getUserAPI({
           accessToken: accessToken,
           userId: decodedAccessToken?.id ?? '',
           setUserInfo: setUserInfo,
-        })
+        });
       }
     }
-  }, [])
+  }, []);
 
   useEffect(() => {
     if (filterBy === 'all') {
@@ -99,9 +99,9 @@ export default function Home() {
         accessToken: accessToken,
         userId: userId,
         setSongs: setSongs,
-      })
+      });
     }
-  }, [accessToken, filterBy])
+  }, [accessToken, filterBy]);
 
   return (
     <Fragment>
@@ -145,8 +145,8 @@ export default function Home() {
                     <li
                       className='dropdown-item'
                       onClick={() => {
-                        setFilterValue('')
-                        setFilterBy('all')
+                        setFilterValue('');
+                        setFilterBy('all');
                       }}
                     >
                       All
@@ -154,8 +154,8 @@ export default function Home() {
                     <li
                       className='dropdown-item'
                       onClick={() => {
-                        setFilterValue('')
-                        setFilterBy('artist')
+                        setFilterValue('');
+                        setFilterBy('artist');
                       }}
                     >
                       Artist
@@ -163,8 +163,8 @@ export default function Home() {
                     <li
                       className='dropdown-item'
                       onClick={() => {
-                        setFilterValue('')
-                        setFilterBy('title')
+                        setFilterValue('');
+                        setFilterBy('title');
                       }}
                     >
                       Title
@@ -264,5 +264,5 @@ export default function Home() {
         </Fragment>
       )}
     </Fragment>
-  )
+  );
 }

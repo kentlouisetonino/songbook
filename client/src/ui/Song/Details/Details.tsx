@@ -1,30 +1,30 @@
-import Cookies from 'js-cookie'
-import { Fragment, useEffect, useState } from 'react'
-import { useRouter } from 'next/router'
-import Header from '../../components/Head/Head'
-import Navbar from '../../components/Navbar/Navbar'
-import decodeToken from 'src/helpers/decode-token'
-import { getSongAPI } from 'src/api/song'
-import { PageRoute, CookiesStorage } from 'src/helpers/enums'
+import Cookies from 'js-cookie';
+import { Fragment, useEffect, useState } from 'react';
+import { useRouter } from 'next/router';
+import Header from '../../components/Head/Head';
+import Navbar from '../../components/Navbar/Navbar';
+import decodeToken from 'src/helpers/decode-token';
+import { getSongAPI } from 'src/api/song';
+import { PageRoute, CookiesStorage } from 'src/helpers/enums';
 
 export default function Details() {
-  const router = useRouter()
-  const songId = router.query?.songId
-  const [title, setTitle] = useState('')
-  const [artist, setArtist] = useState('')
-  const [lyrics, setLyrics] = useState('')
+  const router = useRouter();
+  const songId = router.query?.songId;
+  const [title, setTitle] = useState('');
+  const [artist, setArtist] = useState('');
+  const [lyrics, setLyrics] = useState('');
 
   useEffect(() => {
-    const accessToken = Cookies.get(CookiesStorage.AccessToken)
+    const accessToken = Cookies.get(CookiesStorage.AccessToken);
 
     if (!accessToken) {
-      router.push(PageRoute.Root)
+      router.push(PageRoute.Root);
     } else {
-      const decodedAccessToken = decodeToken({ token: accessToken })
+      const decodedAccessToken = decodeToken({ token: accessToken });
 
       if (!decodedAccessToken) {
-        Cookies.remove(CookiesStorage.AccessToken)
-        router.push(PageRoute.Root)
+        Cookies.remove(CookiesStorage.AccessToken);
+        router.push(PageRoute.Root);
       } else {
         getSongAPI({
           accessToken: accessToken,
@@ -32,10 +32,10 @@ export default function Details() {
           setTitle: setTitle,
           setArtist: setArtist,
           setLyrics: setLyrics,
-        })
+        });
       }
     }
-  }, [router.isReady])
+  }, [router.isReady]);
 
   return (
     <Fragment>
@@ -63,5 +63,5 @@ export default function Details() {
         </div>
       </div>
     </Fragment>
-  )
+  );
 }

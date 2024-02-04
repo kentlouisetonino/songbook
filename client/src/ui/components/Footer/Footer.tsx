@@ -1,5 +1,5 @@
-import LinkedIn from '../Icons/LinkedIn/LinkedIn'
-import Github from '../Icons/Github/Github'
+import LinkedIn from '../Icons/LinkedIn/LinkedIn';
+import Github from '../Icons/Github/Github';
 
 export default function Footer() {
   return (
@@ -30,5 +30,5 @@ export default function Footer() {
         </li>
       </ul>
     </footer>
-  )
+  );
 }

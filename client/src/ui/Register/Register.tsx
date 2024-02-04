@@ -1,27 +1,27 @@
-import Cookies from 'js-cookie'
-import { useEffect, useState, Fragment } from 'react'
-import { useRouter } from 'next/router'
-import Navbar from '../components/Navbar/Navbar'
-import Spinner from '../components/Spinner/Spinner'
-import Header from '../components/Head/Head'
-import InputField from '../components/InputField/InputField'
-import PasswordCheckbox from '../components/PasswordCheckbox/PasswordCheckbox'
-import Footer from '../components/Footer/Footer'
-import { createUserAPI } from 'src/api/user'
-import { registerValidator } from 'src/helpers/validators'
-import { CookiesStorage, PageRoute } from 'src/helpers/enums'
+import Cookies from 'js-cookie';
+import { useEffect, useState, Fragment } from 'react';
+import { useRouter } from 'next/router';
+import Navbar from '../components/Navbar/Navbar';
+import Spinner from '../components/Spinner/Spinner';
+import Header from '../components/Head/Head';
+import InputField from '../components/InputField/InputField';
+import PasswordCheckbox from '../components/PasswordCheckbox/PasswordCheckbox';
+import Footer from '../components/Footer/Footer';
+import { createUserAPI } from 'src/api/user';
+import { registerValidator } from 'src/helpers/validators';
+import { CookiesStorage, PageRoute } from 'src/helpers/enums';
 
 export default function Register() {
-  const router = useRouter()
-  const [firstName, setFirstName] = useState('')
-  const [lastName, setLastName] = useState('')
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
-  const [isInputsValid, setIsInputsValid] = useState(false)
-  const [isLoading, setIsLoading] = useState(false)
+  const router = useRouter();
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [isInputsValid, setIsInputsValid] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   const onSubmit = () => {
-    setIsLoading(true)
+    setIsLoading(true);
 
     createUserAPI({
       firstName: firstName,
@@ -30,8 +30,8 @@ export default function Register() {
       password: password,
       setIsLoading: setIsLoading,
       router: router,
-    })
-  }
+    });
+  };
 
   useEffect(() => {
     registerValidator
@@ -42,16 +42,16 @@ export default function Register() {
         password: password,
       })
       .then((valid) => {
-        if (valid) setIsInputsValid(true)
-        else setIsInputsValid(false)
-      })
-  }, [email, password])
+        if (valid) setIsInputsValid(true);
+        else setIsInputsValid(false);
+      });
+  }, [email, password]);
 
   useEffect(() => {
     if (Cookies.get(CookiesStorage.AccessToken)) {
-      router.push(PageRoute.Root)
+      router.push(PageRoute.Root);
     }
-  }, [])
+  }, []);
 
   return (
     <Fragment>
@@ -124,5 +124,5 @@ export default function Register() {
         </Fragment>
       )}
     </Fragment>
-  )
+  );
 }

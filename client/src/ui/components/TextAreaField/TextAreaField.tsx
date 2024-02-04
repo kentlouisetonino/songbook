@@ -1,10 +1,10 @@
-import { Fragment } from 'react'
+import { Fragment } from 'react';
 
 interface Props {
-  label: string
-  placeholder: string
-  value?: string
-  onChange?: any
+  label: string;
+  placeholder: string;
+  value?: string;
+  onChange?: any;
 }
 
 export default function TextAreaField({
@@ -25,5 +25,5 @@ export default function TextAreaField({
         onChange={(e) => onChange(e.target.value)}
       />
     </Fragment>
-  )
+  );
 }

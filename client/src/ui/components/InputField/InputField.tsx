@@ -1,10 +1,10 @@
 interface Props {
-  label: string
-  type: string
-  placeholder: string
-  value?: string
-  onChange?: any
-  domId?: string
+  label: string;
+  type: string;
+  placeholder: string;
+  value?: string;
+  onChange?: any;
+  domId?: string;
 }
 
 export default function InputField({
@@ -37,5 +37,5 @@ export default function InputField({
         />
       )}
     </>
-  )
+  );
 }

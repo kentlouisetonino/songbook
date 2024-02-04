@@ -1,32 +1,32 @@
-import Cookies from 'js-cookie'
-import { Fragment, useEffect, useState } from 'react'
-import { useRouter } from 'next/router'
-import Navbar from '../../components/Navbar/Navbar'
-import Header from '../../components/Head/Head'
-import decodeToken from 'src/helpers/decode-token'
-import Sidebar from '../../components/Sidebar/Sidebar'
-import InputField from '../../components/InputField/InputField'
-import TextAreaField from '../../components/TextAreaField/TextAreaField'
-import Spinner from '../../components/Spinner/Spinner'
-import { songValidor } from 'src/helpers/validators'
-import { CookiesStorage, PageRoute } from 'src/helpers/enums'
-import { createSongAPI } from 'src/api/song'
-import { getUserAPI } from 'src/api/user'
+import Cookies from 'js-cookie';
+import { Fragment, useEffect, useState } from 'react';
+import { useRouter } from 'next/router';
+import Navbar from '../../components/Navbar/Navbar';
+import Header from '../../components/Head/Head';
+import decodeToken from 'src/helpers/decode-token';
+import Sidebar from '../../components/Sidebar/Sidebar';
+import InputField from '../../components/InputField/InputField';
+import TextAreaField from '../../components/TextAreaField/TextAreaField';
+import Spinner from '../../components/Spinner/Spinner';
+import { songValidor } from 'src/helpers/validators';
+import { CookiesStorage, PageRoute } from 'src/helpers/enums';
+import { createSongAPI } from 'src/api/song';
+import { getUserAPI } from 'src/api/user';
 
 export default function Add() {
-  const router = useRouter()
-  const [accessToken, setAccessToken] = useState('')
-  const [isLoggedIn, setIsLoggedIn] = useState(false)
-  const [isLoading, setIsLoading] = useState(false)
-  const [isInputsValid, setIsInputsValid] = useState(false)
-  const [userId, setUserId] = useState(0)
-  const [title, setTitle] = useState('')
-  const [artist, setArtist] = useState('')
-  const [lyrics, setLyrics] = useState('')
-  const [userInfo, setUserInfo] = useState<any>()
+  const router = useRouter();
+  const [accessToken, setAccessToken] = useState('');
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const [isInputsValid, setIsInputsValid] = useState(false);
+  const [userId, setUserId] = useState(0);
+  const [title, setTitle] = useState('');
+  const [artist, setArtist] = useState('');
+  const [lyrics, setLyrics] = useState('');
+  const [userInfo, setUserInfo] = useState<any>();
 
   const onSubmit = () => {
-    setIsLoading(true)
+    setIsLoading(true);
 
     createSongAPI({
       accessToken: accessToken,
@@ -36,33 +36,33 @@ export default function Add() {
       userId: userId,
       setIsLoading: setIsLoading,
       router: router,
-    })
-  }
+    });
+  };
 
   useEffect(() => {
-    const accessToken = Cookies.get(CookiesStorage.AccessToken)
+    const accessToken = Cookies.get(CookiesStorage.AccessToken);
 
     if (!accessToken) {
-      router.push(PageRoute.Root)
+      router.push(PageRoute.Root);
     } else {
-      const decodedAccessToken = decodeToken({ token: accessToken })
+      const decodedAccessToken = decodeToken({ token: accessToken });
 
       if (!decodedAccessToken) {
-        Cookies.remove(CookiesStorage.AccessToken)
-        router.push(PageRoute.Root)
+        Cookies.remove(CookiesStorage.AccessToken);
+        router.push(PageRoute.Root);
       } else {
-        setAccessToken(accessToken)
-        setUserId(decodedAccessToken?.id)
-        setIsLoggedIn(true)
+        setAccessToken(accessToken);
+        setUserId(decodedAccessToken?.id);
+        setIsLoggedIn(true);
 
         getUserAPI({
           accessToken: accessToken,
           userId: decodedAccessToken?.id,
           setUserInfo: setUserInfo,
-        })
+        });
       }
     }
-  }, [])
+  }, []);
 
   useEffect(() => {
     songValidor
@@ -72,10 +72,10 @@ export default function Add() {
         lyrics: lyrics,
       })
       .then((valid) => {
-        if (valid) setIsInputsValid(true)
-        else setIsInputsValid(false)
-      })
-  }, [title, artist, lyrics])
+        if (valid) setIsInputsValid(true);
+        else setIsInputsValid(false);
+      });
+  }, [title, artist, lyrics]);
 
   return (
     <Fragment>
@@ -139,5 +139,5 @@ export default function Add() {
         </div>
       )}
     </Fragment>
-  )
+  );
 }

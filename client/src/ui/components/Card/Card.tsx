@@ -1,8 +1,8 @@
 interface Props {
-  title: string
-  content: string
-  link: string
-  linkName: string
+  title: string;
+  content: string;
+  link: string;
+  linkName: string;
 }
 
 export default function Card({ title, content, link, linkName }: Props) {
@@ -16,5 +16,5 @@ export default function Card({ title, content, link, linkName }: Props) {
         </a>
       </div>
     </div>
-  )
+  );
 }

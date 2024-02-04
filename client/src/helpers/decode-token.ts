@@ -1,8 +1,8 @@
-import { decodeToken } from 'react-jwt'
+import { decodeToken } from 'react-jwt';
 
 type Props = {
-  token: string
-}
+  token: string;
+};
 
 /**
  * A function that will decode the content associated in the token.
@@ -11,17 +11,13 @@ type Props = {
  */
 const decodedToken = ({ token }: Props) => {
   try {
-    const secret = process.env.NEXT_PUBLIC_AUTH_JWT_SECRET
-    const decodedToken = decodeToken(token)
-    console.log('secret', secret)
-    console.log('token', token)
-    console.log('decodedToken', decodedToken)
+    const decodedToken = decodeToken(token);
 
-    return decodedToken
+    return decodedToken;
   } catch (error) {
-    console.error(error)
-    return undefined
+    console.error(error);
+    return undefined;
   }
-}
+};
 
-export default decodedToken
+export default decodedToken;

@@ -1,49 +1,48 @@
-import Cookies from 'js-cookie'
-import { useRouter } from 'next/router'
-import { Fragment, useEffect, useState } from 'react'
-
-import { loginAPI } from 'src/api/auth'
-import { CookiesStorage, PageRoute } from 'src/helpers/enums'
-import { loginValidator } from 'src/helpers/validators'
-import Footer from '../components/Footer/Footer'
-import Header from '../components/Head/Head'
-import InputField from '../components/InputField/InputField'
-import Navbar from '../components/Navbar/Navbar'
-import PasswordCheckbox from '../components/PasswordCheckbox/PasswordCheckbox'
-import Spinner from '../components/Spinner/Spinner'
+import Cookies from 'js-cookie';
+import { useRouter } from 'next/router';
+import { Fragment, useEffect, useState } from 'react';
+import { loginAPI } from 'src/api/auth';
+import { CookiesStorage, PageRoute } from 'src/helpers/enums';
+import { loginValidator } from 'src/helpers/validators';
+import Footer from '../components/Footer/Footer';
+import Header from '../components/Head/Head';
+import InputField from '../components/InputField/InputField';
+import Navbar from '../components/Navbar/Navbar';
+import PasswordCheckbox from '../components/PasswordCheckbox/PasswordCheckbox';
+import Spinner from '../components/Spinner/Spinner';
 
 export default function Login() {
-  const router = useRouter()
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
-  const [isInputsValid, setIsInputsValid] = useState(false)
-  const [isLoading, setIsLoading] = useState(false)
+  const router = useRouter();
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [isInputsValid, setIsInputsValid] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   const onSubmit = () => {
-    setIsLoading(true)
+    setIsLoading(true);
 
     loginAPI({
       email: email,
       password: password,
       setIsLoading: setIsLoading,
       router: router,
-    })
-  }
+    });
+  };
 
   useEffect(() => {
     loginValidator
       .isValid({ email: email, password: password })
       .then((valid) => {
-        if (valid) setIsInputsValid(true)
-        else setIsInputsValid(false)
-      })
-  }, [email, password])
+        if (valid) setIsInputsValid(true);
+        else setIsInputsValid(false);
+      });
+  }, [email, password]);
 
   useEffect(() => {
     if (Cookies.get(CookiesStorage.AccessToken)) {
-      router.push(PageRoute.Root)
+      router.push(PageRoute.Root);
     }
-  }, [])
+  }, []);
 
   return (
     <Fragment>
@@ -96,5 +95,5 @@ export default function Login() {
         </Fragment>
       )}
     </Fragment>
-  )
+  );
 }

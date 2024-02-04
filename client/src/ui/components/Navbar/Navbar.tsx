@@ -1,21 +1,21 @@
-import Cookies from 'js-cookie'
-import { useEffect, useState, Fragment } from 'react'
+import Cookies from 'js-cookie';
+import { useEffect, useState, Fragment } from 'react';
 
-import styles from './index.module.css'
-import { CookiesStorage, PageRoute } from 'src/helpers/enums'
+import styles from './index.module.css';
+import { CookiesStorage, PageRoute } from 'src/helpers/enums';
 
 interface Props {
-  currentPage?: string
+  currentPage?: string;
 }
 
 export default function Navbar({ currentPage }: Props) {
-  const [isLoggedIn, setIsLoggedIn] = useState(false)
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   useEffect(() => {
-    const accessToken = Cookies.get(CookiesStorage.AccessToken)
-    if (accessToken) setIsLoggedIn(true)
-    else setIsLoggedIn(false)
-  }, [])
+    const accessToken = Cookies.get(CookiesStorage.AccessToken);
+    if (accessToken) setIsLoggedIn(true);
+    else setIsLoggedIn(false);
+  }, []);
 
   return (
     <nav className='navbar navbar-expand-lg bg-light'>
@@ -84,5 +84,5 @@ export default function Navbar({ currentPage }: Props) {
         </div>
       </div>
     </nav>
-  )
+  );
 }

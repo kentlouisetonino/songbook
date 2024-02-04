@@ -1,16 +1,16 @@
-import axios from 'axios'
-import Swal from 'sweetalert2'
+import axios from 'axios';
+import Swal from 'sweetalert2';
 
-import { APIEndpoint, PageRoute } from 'src/helpers/enums'
+import { APIEndpoint, PageRoute } from 'src/helpers/enums';
 
 export function getUserAPI({
   accessToken,
   userId,
   setUserInfo,
 }: {
-  accessToken: string
-  userId: string
-  setUserInfo: any
+  accessToken: string;
+  userId: string;
+  setUserInfo: any;
 }) {
   axios({
     method: 'get',
@@ -23,11 +23,11 @@ export function getUserAPI({
     },
   })
     .then((res) => {
-      setUserInfo(res.data)
+      setUserInfo(res.data);
     })
     .catch((err) => {
-      console.error(err.response.data.message)
-    })
+      console.error(err.response.data.message);
+    });
 }
 
 export function createUserAPI({
@@ -38,12 +38,12 @@ export function createUserAPI({
   setIsLoading,
   router,
 }: {
-  firstName: string
-  lastName: string
-  email: string
-  password: string
-  setIsLoading: any
-  router: any
+  firstName: string;
+  lastName: string;
+  email: string;
+  password: string;
+  setIsLoading: any;
+  router: any;
 }) {
   axios({
     method: 'post',
@@ -56,19 +56,19 @@ export function createUserAPI({
     },
   })
     .then(() => {
-      setIsLoading(false)
+      setIsLoading(false);
 
       Swal.fire('Success', 'Go to Login Page', 'success').then(() => {
-        router.push(PageRoute.Login)
-      })
+        router.push(PageRoute.Login);
+      });
     })
     .catch((err) => {
-      setIsLoading(false)
+      setIsLoading(false);
 
       Swal.fire({
         icon: 'error',
         title: 'Something Went Wrong!',
         text: err.response.data.message,
-      })
-    })
+      });
+    });
 }

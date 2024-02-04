@@ -1,14 +1,14 @@
-import { useRouter } from 'next/router'
-import { PageRoute } from 'src/helpers/enums'
+import { useRouter } from 'next/router';
+import { PageRoute } from 'src/helpers/enums';
 
 interface Props {
-  firstName: string
-  lastName: string
-  email: string
+  firstName: string;
+  lastName: string;
+  email: string;
 }
 
 export default function Sidebar({ firstName, lastName, email }: Props) {
-  const router = useRouter()
+  const router = useRouter();
 
   return (
     <div
@@ -40,5 +40,5 @@ export default function Sidebar({ firstName, lastName, email }: Props) {
         </button>
       </div>
     </div>
-  )
+  );
 }

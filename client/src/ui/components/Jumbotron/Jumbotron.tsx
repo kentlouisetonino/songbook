@@ -1,8 +1,8 @@
-import styles from './index.module.css'
+import styles from './index.module.css';
 
 interface Props {
-  title: string
-  content: string
+  title: string;
+  content: string;
 }
 
 export default function Jumbotron({ title, content }: Props) {
@@ -13,5 +13,5 @@ export default function Jumbotron({ title, content }: Props) {
         {content}
       </p>
     </div>
-  )
+  );
 }
