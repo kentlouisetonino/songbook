@@ -23,9 +23,9 @@ describe('SongController', () => {
         SongService,
         {
           provide: AuthGuard,
-          useValue: jest.fn().mockImplementation(() => true),
-        },
-      ],
+          useValue: jest.fn().mockImplementation(() => true)
+        }
+      ]
     }).compile();
 
     songController = moduleRef.get<SongController>(SongController);
@@ -54,8 +54,8 @@ describe('SongController', () => {
 
     const request: Request | any = {
       query: {
-        id: songStub().id,
-      },
+        id: songStub().id
+      }
     };
 
     beforeEach(async () => {
@@ -76,8 +76,8 @@ describe('SongController', () => {
 
     const request: Request | any = {
       query: {
-        id: songStub().userId,
-      },
+        id: songStub().userId
+      }
     };
 
     beforeEach(async () => {
@@ -99,8 +99,8 @@ describe('SongController', () => {
     const request: Request | any = {
       query: {
         search: songStub().title,
-        userId: songStub().userId,
-      },
+        userId: songStub().userId
+      }
     };
 
     beforeEach(async () => {
@@ -110,13 +110,13 @@ describe('SongController', () => {
     test('#1: If getSongsByTitle is called.', () => {
       expect(songService.getSongsByTitle).toBeCalledWith(
         request.query.search,
-        request.query.userId,
+        request.query.userId
       );
     });
 
     test('#2: If getSongsByTitle returns an array of song.', () => {
       expect(
-        songService.getSongsByTitle(songStub().title, songStub().userId),
+        songService.getSongsByTitle(songStub().title, songStub().userId)
       ).toBe(songs);
     });
   });
@@ -127,8 +127,8 @@ describe('SongController', () => {
     const request: Request | any = {
       query: {
         search: songStub().title,
-        userId: songStub().userId,
-      },
+        userId: songStub().userId
+      }
     };
 
     beforeEach(async () => {
@@ -138,13 +138,13 @@ describe('SongController', () => {
     test('#1: If getSongsByArtist is called.', () => {
       expect(songService.getSongsByArtist).toBeCalledWith(
         request.query.search,
-        request.query.userId,
+        request.query.userId
       );
     });
 
     test('#2: If getSongsByArtist returns an array of song.', () => {
       expect(
-        songService.getSongsByArtist(songStub().title, songStub().userId),
+        songService.getSongsByArtist(songStub().title, songStub().userId)
       ).toBe(songs);
     });
   });
@@ -158,11 +158,11 @@ describe('SongController', () => {
         title: songStub().title,
         artist: songStub().artist,
         lyrics: songStub().lyrics,
-        userId: songStub().userId,
+        userId: songStub().userId
       };
 
       const request: Request | any = {
-        body: createSongInput,
+        body: createSongInput
       };
 
       song = await songController.createSong(request);
@@ -185,11 +185,11 @@ describe('SongController', () => {
       updateSongInput = {
         id: songStub().id,
         title: songStub().title,
-        userId: songStub().userId,
+        userId: songStub().userId
       };
 
       const request: Request | any = {
-        body: updateSongInput,
+        body: updateSongInput
       };
 
       song = await songController.updateSong(request);
@@ -209,8 +209,8 @@ describe('SongController', () => {
 
     const request: Request | any = {
       query: {
-        id: songStub().id,
-      },
+        id: songStub().id
+      }
     };
 
     beforeEach(async () => {

@@ -9,7 +9,7 @@ export const Public = () => {
 
 export const byPassAuth = (
   context: ExecutionContext,
-  reflector: Reflector,
+  reflector: Reflector
 ): boolean => {
   return reflector.get<boolean>(PUBLIC_KEY, context.getHandler());
 };

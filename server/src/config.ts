@@ -13,7 +13,7 @@ export const config = () => ({
     migrationsRun: false,
     synchronize: false,
     cli: {
-      migrationsDir: 'src/migrations',
-    },
-  },
+      migrationsDir: 'src/migrations'
+    }
+  }
 });

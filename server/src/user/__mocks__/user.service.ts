@@ -6,5 +6,5 @@ export const UserService = jest.fn().mockReturnValue({
   getUserByEmail: jest.fn().mockReturnValue(userStub()),
   createUser: jest.fn().mockResolvedValue(userStub()),
   updateUser: jest.fn().mockResolvedValue(userStub()),
-  deleteUser: jest.fn().mockResolvedValue(deleteUserStub()),
+  deleteUser: jest.fn().mockResolvedValue(deleteUserStub())
 });

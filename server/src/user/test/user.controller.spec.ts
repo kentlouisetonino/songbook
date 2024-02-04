@@ -23,9 +23,9 @@ describe('UserController', () => {
         UserService,
         {
           provide: AuthGuard,
-          useValue: jest.fn().mockImplementation(() => true),
-        },
-      ],
+          useValue: jest.fn().mockImplementation(() => true)
+        }
+      ]
     }).compile();
 
     userController = moduleRef.get<UserController>(UserController);
@@ -54,8 +54,8 @@ describe('UserController', () => {
 
     const request: Request | any = {
       query: {
-        id: userStub().id,
-      },
+        id: userStub().id
+      }
     };
 
     beforeEach(async () => {
@@ -76,8 +76,8 @@ describe('UserController', () => {
 
     const request: Request | any = {
       params: {
-        email: userStub().email,
-      },
+        email: userStub().email
+      }
     };
 
     beforeEach(async () => {
@@ -102,11 +102,11 @@ describe('UserController', () => {
         firstName: userStub().firstName,
         lastName: userStub().lastName,
         email: userStub().email,
-        password: userStub().password,
+        password: userStub().password
       };
 
       const request: Request | any = {
-        body: createUserInput,
+        body: createUserInput
       };
 
       user = await userController.createUser(request);
@@ -129,11 +129,11 @@ describe('UserController', () => {
       updateUserInput = {
         id: userStub().id,
         firstName: userStub().firstName,
-        lastName: userStub().lastName,
+        lastName: userStub().lastName
       };
 
       const request: Request | any = {
-        body: updateUserInput,
+        body: updateUserInput
       };
 
       user = await userController.updateUser(request);
@@ -153,8 +153,8 @@ describe('UserController', () => {
 
     const request: Request | any = {
       params: {
-        id: userStub().id,
-      },
+        id: userStub().id
+      }
     };
 
     beforeEach(async () => {

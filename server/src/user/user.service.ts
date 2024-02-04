@@ -2,7 +2,7 @@ import {
   ConflictException,
   HttpStatus,
   Injectable,
-  NotFoundException,
+  NotFoundException
 } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import { JwtService } from '@nestjs/jwt';
@@ -20,7 +20,7 @@ export class UserService {
     private userRepository: Repository<User>,
 
     private jwtService: JwtService,
-    private configService: ConfigService,
+    private configService: ConfigService
   ) {}
 
   async getUsers(): Promise<User[]> {
@@ -39,7 +39,7 @@ export class UserService {
 
   async getUserByEmail(email: string): Promise<User> {
     const userDb = await this.userRepository.findOne({
-      where: { email: email },
+      where: { email: email }
     });
 
     if (!userDb) {
@@ -51,24 +51,24 @@ export class UserService {
 
   async createUser(payload: CreateUserInput): Promise<User> {
     const userDb = await this.userRepository.findOne({
-      where: { email: payload.email },
+      where: { email: payload.email }
     });
 
     if (userDb) {
       throw new ConflictException(
-        'Email already exist. Please use a different email.',
+        'Email already exist. Please use a different email.'
       );
     }
 
     const { password, ...rest } = payload;
 
     const encryptedPassword = this.jwtService.sign(password, {
-      secret: `${this.configService.get('AUTH_PASSWORD_SECRET')}`,
+      secret: `${this.configService.get('AUTH_PASSWORD_SECRET')}`
     });
 
     const userInstance = this.userRepository.create({
       ...rest,
-      password: encryptedPassword,
+      password: encryptedPassword
     });
 
     return await this.userRepository.save(userInstance);
@@ -76,17 +76,17 @@ export class UserService {
 
   async updateUser(payload: UpdateUserInput): Promise<User> {
     const userDb = await this.userRepository.findOne({
-      where: { id: payload.id },
+      where: { id: payload.id }
     });
 
     if (!userDb) {
       throw new NotFoundException(
-        'User Id does not exist. Use a different Id.',
+        'User Id does not exist. Use a different Id.'
       );
     }
 
     const userInstance = this.userRepository.create({
-      ...payload,
+      ...payload
     });
 
     return await this.userRepository.save(userInstance);
@@ -98,12 +98,12 @@ export class UserService {
     if (deletedUser.affected) {
       return {
         status: HttpStatus.OK,
-        message: 'User successfully deleted.',
+        message: 'User successfully deleted.'
       };
     } else {
       return {
         status: HttpStatus.OK,
-        message: 'User already deleted.',
+        message: 'User already deleted.'
       };
     }
   }

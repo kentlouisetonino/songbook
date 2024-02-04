@@ -11,7 +11,7 @@ export class AuthService {
   constructor(
     private readonly userService: UserService,
     private readonly jwtService: JwtService,
-    private readonly configService: ConfigService,
+    private readonly configService: ConfigService
   ) {}
 
   async authorizeToken(email: string, accessToken: string): Promise<any> {
@@ -19,7 +19,7 @@ export class AuthService {
 
     return {
       accessToken: accessToken,
-      currentUser: userDb,
+      currentUser: userDb
     };
   }
 
@@ -33,23 +33,23 @@ export class AuthService {
 
     const tokenPayload = {
       id: user.id,
-      email: payload.email,
+      email: payload.email
     };
 
     const signedToken = this.jwtService.sign(tokenPayload, {
       secret: `${this.configService.get('AUTH_JWT_SECRET')}`,
-      expiresIn: '25200s',
+      expiresIn: '25200s'
     });
 
     if (user) {
       await this.userService.updateUser({
         id: user.id,
-        accessToken: signedToken,
+        accessToken: signedToken
       });
     }
 
     return {
-      accessToken: signedToken,
+      accessToken: signedToken
     };
   }
 }

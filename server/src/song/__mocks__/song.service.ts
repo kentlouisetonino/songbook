@@ -8,5 +8,5 @@ export const SongService = jest.fn().mockReturnValue({
   getSongsByArtist: jest.fn().mockReturnValue([songStub()]),
   createSong: jest.fn().mockResolvedValue(songStub()),
   updateSong: jest.fn().mockResolvedValue(songStub()),
-  deleteSong: jest.fn().mockResolvedValue(deleteSongStub()),
+  deleteSong: jest.fn().mockResolvedValue(deleteSongStub())
 });

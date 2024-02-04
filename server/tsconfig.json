@@ -18,5 +18,5 @@
     "forceConsistentCasingInFileNames": false,
     "noFallthroughCasesInSwitch": false,
   },
-  "include": ["node_modules/**/*.d.ts"],
+  "include": ["**/*.ts", "node_modules/**/*.d.ts"],
 }

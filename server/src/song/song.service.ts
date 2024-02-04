@@ -12,7 +12,7 @@ export class SongService {
   constructor(
     @InjectRepository(Song)
     private songRepository: Repository<Song>,
-    private userService: UserService,
+    private userService: UserService
   ) {}
 
   async getSongs(): Promise<Song[]> {
@@ -31,7 +31,7 @@ export class SongService {
 
   async getSongsByUser(userId: number): Promise<Song[]> {
     return await this.songRepository.find({
-      where: { userId: userId },
+      where: { userId: userId }
     });
   }
 
@@ -61,12 +61,12 @@ export class SongService {
 
   async updateSong(payload: UpdateSongInput): Promise<Song> {
     const songDb = await this.songRepository.findOne({
-      where: { id: payload.id },
+      where: { id: payload.id }
     });
 
     if (!songDb) {
       throw new NotFoundException(
-        'User Id does not exist. Use a different Id.',
+        'User Id does not exist. Use a different Id.'
       );
     }
 
@@ -80,12 +80,12 @@ export class SongService {
     if (deletedSong.affected) {
       return {
         status: HttpStatus.OK,
-        message: 'Song successfully deleted.',
+        message: 'Song successfully deleted.'
       };
     } else {
       return {
         status: HttpStatus.OK,
-        message: 'Song already deleted.',
+        message: 'Song already deleted.'
       };
     }
   }

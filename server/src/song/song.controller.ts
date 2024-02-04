@@ -30,7 +30,7 @@ export class SongController {
   getSongsByTitle(@Req() req: Request): Promise<Song[]> {
     return this.songService.getSongsByTitle(
       String(req.query?.search),
-      Number(req.query?.userId),
+      Number(req.query?.userId)
     );
   }
 
@@ -38,7 +38,7 @@ export class SongController {
   getSongsByArtist(@Req() req: Request): Promise<Song[]> {
     return this.songService.getSongsByArtist(
       String(req.query?.search),
-      Number(req.query?.userId),
+      Number(req.query?.userId)
     );
   }
 

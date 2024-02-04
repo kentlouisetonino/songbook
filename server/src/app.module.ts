@@ -20,14 +20,14 @@ import { UserModule } from './user/user.module';
         password: configService.get('DB_ROOT_PASSWORD'),
         database: configService.get('DB_NAME'),
         autoLoadEntities: true,
-        synchronize: true,
+        synchronize: true
       }),
-      inject: [ConfigService],
+      inject: [ConfigService]
     }),
     HealthCheckModule,
     UserModule,
     AuthModule,
-    SongModule,
-  ],
+    SongModule
+  ]
 })
 export class AppModule {}
