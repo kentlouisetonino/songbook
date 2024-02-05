@@ -1,9 +1,9 @@
 import Cookies from 'js-cookie';
 import { useRouter } from 'next/router';
 import { Fragment, useEffect, useState } from 'react';
-import { loginAPI } from 'src/api/auth';
+import AuthService from 'src/Services/AuthService';
 import { CookiesStorage, PageRoute } from 'src/helpers/enums';
-import { loginValidator } from 'src/helpers/validators';
+import ValidationService from '../../Services/ValidationService';
 import Footer from '../components/Footer/Footer';
 import Header from '../components/Head/Head';
 import InputField from '../components/InputField/InputField';
@@ -18,19 +18,19 @@ export default function Login() {
   const [isInputsValid, setIsInputsValid] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
 
-  const onSubmit = () => {
+  function onSubmit() {
     setIsLoading(true);
 
-    loginAPI({
+    AuthService.login({
       email: email,
       password: password,
       setIsLoading: setIsLoading,
       router: router
     });
-  };
+  }
 
   useEffect(() => {
-    loginValidator
+    ValidationService.loginValidator()
       .isValid({ email: email, password: password })
       .then((valid) => {
         if (valid) setIsInputsValid(true);

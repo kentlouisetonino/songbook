@@ -1,17 +1,17 @@
 import Cookies from 'js-cookie';
-import { Fragment, useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
-import Navbar from '../../components/Navbar/Navbar';
-import Header from '../../components/Head/Head';
-import decodeToken from 'src/helpers/decode-token';
-import Sidebar from '../../components/Sidebar/Sidebar';
-import InputField from '../../components/InputField/InputField';
-import TextAreaField from '../../components/TextAreaField/TextAreaField';
-import Spinner from '../../components/Spinner/Spinner';
-import { songValidor } from 'src/helpers/validators';
+import { Fragment, useEffect, useState } from 'react';
 import { CookiesStorage, PageRoute } from 'src/helpers/enums';
-import { createSongAPI } from 'src/api/song';
-import { getUserAPI } from 'src/api/user';
+import AuthService from '../../../Services/AuthService';
+import SongService from '../../../Services/SongService';
+import UserService from '../../../Services/UserService';
+import ValidationService from '../../../Services/ValidationService';
+import Header from '../../components/Head/Head';
+import InputField from '../../components/InputField/InputField';
+import Navbar from '../../components/Navbar/Navbar';
+import Sidebar from '../../components/Sidebar/Sidebar';
+import Spinner from '../../components/Spinner/Spinner';
+import TextAreaField from '../../components/TextAreaField/TextAreaField';
 
 export default function Add() {
   const router = useRouter();
@@ -28,7 +28,7 @@ export default function Add() {
   const onSubmit = () => {
     setIsLoading(true);
 
-    createSongAPI({
+    SongService.createSongAPI({
       accessToken: accessToken,
       title: title,
       artist: artist,
@@ -45,19 +45,19 @@ export default function Add() {
     if (!accessToken) {
       router.push(PageRoute.Root);
     } else {
-      const decodedAccessToken = decodeToken({ token: accessToken });
+      const decodedAccessToken = AuthService.getDecodedToken(accessToken);
 
       if (!decodedAccessToken) {
         Cookies.remove(CookiesStorage.AccessToken);
         router.push(PageRoute.Root);
       } else {
         setAccessToken(accessToken);
-        setUserId(decodedAccessToken?.id);
+        setUserId(decodedAccessToken?.id as any);
         setIsLoggedIn(true);
 
-        getUserAPI({
+        UserService.getUserAPI({
           accessToken: accessToken,
-          userId: decodedAccessToken?.id,
+          userId: String(decodedAccessToken?.id),
           setUserInfo: setUserInfo
         });
       }
@@ -65,7 +65,7 @@ export default function Add() {
   }, []);
 
   useEffect(() => {
-    songValidor
+    ValidationService.songValidor()
       .isValid({
         title: title,
         artist: artist,

@@ -1,15 +1,15 @@
 import Cookies from 'js-cookie';
-import { useEffect, useState, Fragment } from 'react';
 import { useRouter } from 'next/router';
-import Navbar from '../components/Navbar/Navbar';
-import Spinner from '../components/Spinner/Spinner';
+import { Fragment, useEffect, useState } from 'react';
+import { CookiesStorage, PageRoute } from 'src/helpers/enums';
+import UserService from '../../Services/UserService';
+import ValidationService from '../../Services/ValidationService';
+import Footer from '../components/Footer/Footer';
 import Header from '../components/Head/Head';
 import InputField from '../components/InputField/InputField';
+import Navbar from '../components/Navbar/Navbar';
 import PasswordCheckbox from '../components/PasswordCheckbox/PasswordCheckbox';
-import Footer from '../components/Footer/Footer';
-import { createUserAPI } from 'src/api/user';
-import { registerValidator } from 'src/helpers/validators';
-import { CookiesStorage, PageRoute } from 'src/helpers/enums';
+import Spinner from '../components/Spinner/Spinner';
 
 export default function Register() {
   const router = useRouter();
@@ -23,7 +23,7 @@ export default function Register() {
   const onSubmit = () => {
     setIsLoading(true);
 
-    createUserAPI({
+    UserService.createUserAPI({
       firstName: firstName,
       lastName: lastName,
       email: email,
@@ -34,7 +34,7 @@ export default function Register() {
   };
 
   useEffect(() => {
-    registerValidator
+    ValidationService.registerValidator()
       .isValid({
         firstName: firstName,
         lastName: lastName,

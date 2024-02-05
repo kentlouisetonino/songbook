@@ -3,7 +3,8 @@ module.exports = {
     'eslint:recommended',
     'plugin:@typescript-eslint/eslint-recommended',
     'plugin:@typescript-eslint/recommended',
-    'prettier',
+    'plugin:@next/next/recommended',
+    'prettier'
   ],
   plugins: ['@typescript-eslint'],
   parser: '@typescript-eslint/parser',
@@ -13,10 +14,10 @@ module.exports = {
   settings: {
     'import/resolver': {
       node: {
-        extensions: ['.js', '.jsx', '.json', '.ts', '.tsx'],
+        extensions: ['.js', '.jsx', '.json', '.ts', '.tsx']
       },
-      typescript: {},
-    },
+      typescript: {}
+    }
   },
   rules: {
     '@typescript-eslint/explicit-module-boundary-types': 'off',
@@ -28,11 +29,15 @@ module.exports = {
       'error',
       {
         multiline: {
-          delimiter: 'none',
-          requireLast: false,
+          delimiter: 'semi', // 'none' or 'semi' or 'comma'
+          requireLast: true
         },
-      },
-    ],
+        singleline: {
+          delimiter: 'semi', // 'semi' or 'comma'
+          requireLast: false
+        }
+      }
+    ]
   },
-  ignorePatterns: ['*.config.js', '*.d.ts', 'generated'],
-}
+  ignorePatterns: ['*.config.js', '*.d.ts', 'generated']
+};

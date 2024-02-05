@@ -12,6 +12,7 @@
     "format": "prettier --write \"src/**/*.{ts,tsx,js,jsx,css}\" \"pages/**/*.{ts,tsx,js,jsx,css}\""
   },
   "dependencies": {
+    "@next/eslint-plugin-next": "^14.1.0",
     "@types/bootstrap": "^5.2.10",
     "@types/js-cookie": "^3.0.6",
     "@types/jsonwebtoken": "^9.0.5",

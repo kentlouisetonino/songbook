@@ -1,11 +1,11 @@
 import Cookies from 'js-cookie';
-import { Fragment, useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
+import { Fragment, useEffect, useState } from 'react';
+import { CookiesStorage, PageRoute } from 'src/helpers/enums';
+import AuthService from '../../../Services/AuthService';
+import SongService from '../../../Services/SongService';
 import Header from '../../components/Head/Head';
 import Navbar from '../../components/Navbar/Navbar';
-import decodeToken from 'src/helpers/decode-token';
-import { getSongAPI } from 'src/api/song';
-import { PageRoute, CookiesStorage } from 'src/helpers/enums';
 
 export default function Details() {
   const router = useRouter();
@@ -20,13 +20,13 @@ export default function Details() {
     if (!accessToken) {
       router.push(PageRoute.Root);
     } else {
-      const decodedAccessToken = decodeToken({ token: accessToken });
+      const decodedAccessToken = AuthService.getDecodedToken(accessToken);
 
       if (!decodedAccessToken) {
         Cookies.remove(CookiesStorage.AccessToken);
         router.push(PageRoute.Root);
       } else {
-        getSongAPI({
+        SongService.getSongAPI({
           accessToken: accessToken,
           songId: songId,
           setTitle: setTitle,
