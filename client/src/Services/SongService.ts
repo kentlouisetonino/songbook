@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { NextRouter } from 'next/router';
-import Swal from 'sweetalert2';
 import { APIEndpoint, PageRoute } from '../helpers/enums';
+import Swal from 'sweetalert2';
 
 export default class SongService {
   static createSongAPI({
