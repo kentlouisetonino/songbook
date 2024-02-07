@@ -3,7 +3,7 @@ import Cookies from 'js-cookie';
 import { NextRouter } from 'next/router';
 import { decodeToken } from 'react-jwt';
 import { APIEndpoint, CookiesStorage, PageRoute } from 'src/helpers/enums';
-import {DecodedToken} from 'src/types/auth';
+import { DecodedToken } from 'src/types/auth';
 import Swal from 'sweetalert2';
 
 interface LoginProps {

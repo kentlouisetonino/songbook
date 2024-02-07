@@ -1,4 +1,4 @@
-import {FilterBy} from "src/types/song";
+import { FilterBy } from 'src/types/song';
 
 interface Props {
   filterBy: FilterBy;

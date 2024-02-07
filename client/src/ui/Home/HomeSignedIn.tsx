@@ -5,8 +5,8 @@ import Sidebar from '../components/Sidebar/Sidebar';
 import HomeListEmpty from './HomeListEmpty';
 import HomeListSongs from './HomeListSongs';
 import HomeSearchBar from './HomeSearchBar';
-import {FilterBy} from 'src/types/song';
-import {User} from 'src/types/user';
+import { FilterBy } from 'src/types/song';
+import { User } from 'src/types/user';
 
 interface Props {
   songs: any[];

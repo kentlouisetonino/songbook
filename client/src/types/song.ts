@@ -11,5 +11,5 @@ export interface Song {
 export enum FilterBy {
   All = 'all',
   Artist = 'artist',
-  Title = 'title',
+  Title = 'title'
 }
