@@ -7,15 +7,17 @@ import SongService from '../../services/SongService';
 import UserService from '../../services/UserService';
 import HomeSignedIn from './HomeSignedIn';
 import HomeSignedOut from './HomeSignedOut';
+import { User } from 'src/types/user';
+import { FilterBy, Song } from 'src/types/song';
 
 export default function Home() {
   const router = useRouter();
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [userId, setUserId] = useState('');
   const [accessToken, setAccessToken] = useState('');
-  const [userInfo, setUserInfo] = useState<any>();
-  const [songs, setSongs] = useState<any>([]);
-  const [filterBy, setFilterBy] = useState('all');
+  const [userInfo, setUserInfo] = useState<User>();
+  const [songs, setSongs] = useState<Song[]>([]);
+  const [filterBy, setFilterBy] = useState<FilterBy>(FilterBy.All);
   const [filterValue, setFilterValue] = useState('');
 
   function onDeleteSong(songId: number) {
@@ -28,7 +30,7 @@ export default function Home() {
 
   function onFilterBySearch() {
     switch (filterBy) {
-      case 'all':
+      case FilterBy.All:
         SongService.getAllSongByUserAPI({
           accessToken: accessToken,
           userId: Number(userId),
@@ -36,7 +38,7 @@ export default function Home() {
         });
 
         break;
-      case 'artist':
+      case FilterBy.Artist:
         SongService.getAllSongByArtistAPI({
           accessToken: accessToken,
           search: filterValue,
@@ -45,7 +47,7 @@ export default function Home() {
         });
 
         break;
-      case 'title':
+      case FilterBy.Title:
         SongService.getAllSongByTitleAPI({
           accessToken: accessToken,
           search: filterValue,

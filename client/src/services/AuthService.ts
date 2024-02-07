@@ -36,14 +36,18 @@ export default class AuthService {
           router.push(PageRoute.Root);
         });
       })
-      .catch((err) => {
+      .catch((error) => {
         setIsLoading(false);
 
-        Swal.fire({
-          icon: 'error',
-          title: 'Something Went Wrong!',
-          text: err.response.data.message
-        });
+        console.log('error', error);
+
+        if (error instanceof Error) {
+          Swal.fire({
+            icon: 'error',
+            title: 'Something Went Wrong!',
+            text: error.message
+          });
+        }
       });
   }
 
@@ -58,7 +62,10 @@ export default class AuthService {
 
       return;
     } catch (error) {
-      console.error(error);
+      if (error instanceof Error) {
+        console.error(error.message);
+      }
+
       return;
     }
   }
