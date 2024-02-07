@@ -2771,6 +2771,11 @@ typed-array-length@^1.0.4:
     for-each "^0.3.3"
     is-typed-array "^1.1.9"
 
+typescript-language-server@^4.3.2:
+  version "4.3.2"
+  resolved "https://registry.yarnpkg.com/typescript-language-server/-/typescript-language-server-4.3.2.tgz#31954e8a9cc244c7fcd61d4a5b35cb44dcb31408"
+  integrity sha512-I2BxhjySsfMjchedqUGutaoCTEAL/9f/kf8wjPtBx7MICQxXuSfNYvkDp51TfC29RW95pjz2BUgaezJoti4flA==
+
 typescript@^5.3.3:
   version "5.3.3"
   resolved "https://registry.yarnpkg.com/typescript/-/typescript-5.3.3.tgz#b3ce6ba258e72e6305ba66f5c9b452aaee3ffe37"
