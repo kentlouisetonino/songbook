@@ -87,7 +87,7 @@ export default function Home() {
   }, []);
 
   useEffect(() => {
-    if (filterBy === 'all') {
+    if (filterBy === FilterBy.All) {
       SongService.getAllSongByUserAPI({
         accessToken: accessToken,
         userId: Number(userId),
