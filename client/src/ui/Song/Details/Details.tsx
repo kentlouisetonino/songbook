@@ -2,8 +2,8 @@ import Cookies from 'js-cookie';
 import { useRouter } from 'next/router';
 import { Fragment, useEffect, useState } from 'react';
 import { CookiesStorage, PageRoute } from 'src/helpers/enums';
-import AuthService from '../../../Services/AuthService';
-import SongService from '../../../Services/SongService';
+import AuthService from '../../../services/AuthService';
+import SongService from '../../../services/SongService';
 import Header from '../../components/Head/Head';
 import Navbar from '../../components/Navbar/Navbar';
 

@@ -1,10 +1,10 @@
 import Cookies from 'js-cookie';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
-import AuthService from 'src/Services/AuthService';
+import AuthService from '../../services/AuthService';
 import { CookiesStorage, PageRoute } from 'src/helpers/enums';
-import SongService from '../../Services/SongService';
-import UserService from '../../Services/UserService';
+import SongService from '../../services/SongService';
+import UserService from '../../services/UserService';
 import HomeSignedIn from './HomeSignedIn';
 import HomeSignedOut from './HomeSignedOut';
 

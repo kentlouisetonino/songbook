@@ -1,9 +1,9 @@
 import Cookies from 'js-cookie';
 import { useRouter } from 'next/router';
 import { Fragment, useEffect, useState } from 'react';
-import AuthService from 'src/Services/AuthService';
+import AuthService from '../../services/AuthService';
 import { CookiesStorage, PageRoute } from 'src/helpers/enums';
-import ValidationService from '../../Services/ValidationService';
+import ValidationService from '../../services/ValidationService';
 import Footer from '../components/Footer/Footer';
 import Header from '../components/Head/Head';
 import InputField from '../components/InputField/InputField';
