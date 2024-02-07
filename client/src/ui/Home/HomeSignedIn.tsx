@@ -5,14 +5,16 @@ import Sidebar from '../components/Sidebar/Sidebar';
 import HomeListEmpty from './HomeListEmpty';
 import HomeListSongs from './HomeListSongs';
 import HomeSearchBar from './HomeSearchBar';
+import {FilterBy} from 'src/types/song';
+import {User} from 'src/types/user';
 
 interface Props {
   songs: any[];
-  userInfo: any;
-  filterBy: string;
+  userInfo: User;
+  filterBy: FilterBy;
   filterValue: string;
   router: NextRouter;
-  setFilterBy: (value: string) => void;
+  setFilterBy: (value: FilterBy) => void;
   setFilterValue: (value: string) => void;
   onDeleteSong: (value: number) => void;
   onFilterBySearch: () => void;

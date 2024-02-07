@@ -3,6 +3,7 @@ import Cookies from 'js-cookie';
 import { NextRouter } from 'next/router';
 import { decodeToken } from 'react-jwt';
 import { APIEndpoint, CookiesStorage, PageRoute } from 'src/helpers/enums';
+import {DecodedToken} from 'src/types/auth';
 import Swal from 'sweetalert2';
 
 interface LoginProps {
@@ -10,11 +11,6 @@ interface LoginProps {
   password: string;
   router: NextRouter;
   setIsLoading: (value: boolean) => void;
-}
-
-interface DecodedTokenResponse {
-  id: number;
-  email: string;
 }
 
 export default class AuthService {
@@ -39,8 +35,6 @@ export default class AuthService {
       .catch((error) => {
         setIsLoading(false);
 
-        console.log('error', error);
-
         if (error instanceof Error) {
           Swal.fire({
             icon: 'error',
@@ -54,10 +48,10 @@ export default class AuthService {
   // This method will decode the content associated in the token.
   static getDecodedToken(token: string) {
     try {
-      const decodedToken = decodeToken(token);
+      const decodedToken: DecodedToken | null = decodeToken(token);
 
       if (decodedToken) {
-        return decodedToken as DecodedTokenResponse;
+        return decodedToken as DecodedToken;
       }
 
       return;

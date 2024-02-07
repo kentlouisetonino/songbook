@@ -96,7 +96,7 @@ export default function Home() {
     }
   }, [accessToken, filterBy]);
 
-  if (isLoggedIn) {
+  if (isLoggedIn && userInfo) {
     return (
       <HomeSignedIn
         songs={songs}

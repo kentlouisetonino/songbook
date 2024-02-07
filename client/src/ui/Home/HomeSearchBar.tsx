@@ -1,7 +1,9 @@
+import {FilterBy} from "src/types/song";
+
 interface Props {
-  filterBy: string;
+  filterBy: FilterBy;
   filterValue: string;
-  setFilterBy: (value: string) => void;
+  setFilterBy: (value: FilterBy) => void;
   setFilterValue: (value: string) => void;
   onFilterBySearch: () => void;
 }
@@ -42,7 +44,7 @@ export default function HomeSearchBar({
             className='dropdown-item'
             onClick={() => {
               setFilterValue('');
-              setFilterBy('all');
+              setFilterBy(FilterBy.All);
             }}
           >
             All
@@ -51,7 +53,7 @@ export default function HomeSearchBar({
             className='dropdown-item'
             onClick={() => {
               setFilterValue('');
-              setFilterBy('artist');
+              setFilterBy(FilterBy.Artist);
             }}
           >
             Artist
@@ -60,14 +62,14 @@ export default function HomeSearchBar({
             className='dropdown-item'
             onClick={() => {
               setFilterValue('');
-              setFilterBy('title');
+              setFilterBy(FilterBy.Title);
             }}
           >
             Title
           </li>
         </ul>
         <input
-          disabled={filterBy === 'all' ? true : false}
+          disabled={filterBy === FilterBy.All}
           type='text'
           className='form-control'
           aria-label='Text input with segmented dropdown button'
