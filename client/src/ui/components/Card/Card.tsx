@@ -1,11 +1,11 @@
-interface Props {
+interface CardProps {
   title: string;
   content: string;
   link: string;
   linkName: string;
 }
 
-export default function Card({ title, content, link, linkName }: Props) {
+export default function Card({ title, content, link, linkName }: CardProps) {
   return (
     <div className='card text-center my-5' style={{ width: '45%' }}>
       <div className='card-body my-5'>
