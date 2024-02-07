@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "@next/eslint-plugin-next": "^14.1.0",
+    "@tailwindcss/language-server": "^0.0.16",
     "@types/bootstrap": "^5.2.10",
     "@types/js-cookie": "^3.0.6",
     "@types/jsonwebtoken": "^9.0.5",
