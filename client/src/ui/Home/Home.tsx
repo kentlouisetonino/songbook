@@ -1,14 +1,12 @@
-import Cookies from 'js-cookie';
 import { useRouter } from 'next/router';
-import { useEffect, useState } from 'react';
-import AuthService from '../../services/AuthService';
-import { CookiesStorage, PageRoute } from 'src/helpers/enums';
+import { useState } from 'react';
 import SongService from '../../services/SongService';
-import UserService from '../../services/UserService';
 import HomeSignedIn from './HomeSignedIn';
 import HomeSignedOut from './HomeSignedOut';
 import { User } from 'src/types/user';
 import { FilterBy, Song } from 'src/types/song';
+import useHomeAuthHandler from './useHomeAuthHandler';
+import useHomeInitialization from './useHomeInitialization';
 
 export default function Home() {
   const router = useRouter();
@@ -61,40 +59,22 @@ export default function Home() {
     }
   }
 
-  useEffect(() => {
-    const accessToken = Cookies.get(CookiesStorage.AccessToken);
+  // Authenticate the user.
+  useHomeAuthHandler({
+    router: router,
+    setUserId: setUserId,
+    setUserInfo: setUserInfo,
+    setIsLoggedIn: setIsLoggedIn,
+    setAccessToken: setAccessToken
+  });
 
-    if (!accessToken) {
-      router.push(PageRoute.Root);
-    } else {
-      const decodedAccessToken = AuthService.getDecodedToken(accessToken);
-
-      if (!decodedAccessToken) {
-        Cookies.remove(CookiesStorage.AccessToken);
-        router.push(PageRoute.Root);
-      } else {
-        setIsLoggedIn(true);
-        setAccessToken(accessToken);
-        setUserId(String(decodedAccessToken?.id) ?? '');
-
-        UserService.getUserAPI({
-          accessToken: accessToken,
-          userId: String(decodedAccessToken?.id) ?? '',
-          setUserInfo: setUserInfo
-        });
-      }
-    }
-  }, []);
-
-  useEffect(() => {
-    if (filterBy === FilterBy.All) {
-      SongService.getAllSongByUserAPI({
-        accessToken: accessToken,
-        userId: Number(userId),
-        setSongs: setSongs
-      });
-    }
-  }, [accessToken, filterBy]);
+  // Initialize the date once user is authenticated successfully.
+  useHomeInitialization({
+    userId: userId,
+    filterBy: filterBy,
+    accessToken: accessToken,
+    setSongs: setSongs
+  });
 
   if (isLoggedIn && userInfo) {
     return (

@@ -93,8 +93,6 @@ export default class SongService {
     userId: number;
     setSongs: (value: any[]) => void;
   }) {
-    console.log('accessToken', accessToken);
-
     axios({
       method: 'get',
       url:

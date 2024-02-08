@@ -1,5 +1,5 @@
 import { useMemo } from 'react';
-import { FilterBy } from 'src/types/song';
+import { FilterBy, FilterByLabel } from 'src/types/song';
 
 interface Props {
   filterBy: FilterBy;
@@ -16,16 +16,16 @@ export default function HomeSearchBar({
   setFilterValue,
   onFilterBySearch
 }: Props) {
-  const searchValue = useMemo(() => {
-    switch (filterValue) {
+  const searchFilterBy = useMemo(() => {
+    switch (filterBy) {
       case FilterBy.Artist:
-        return FilterBy.Artist;
+        return FilterByLabel[FilterBy.Artist];
       case FilterBy.Title:
-        return FilterBy.Title;
+        return FilterByLabel[FilterBy.Title];
       default:
-        return FilterBy.All;
+        return FilterByLabel[FilterBy.All];
     }
-  }, [filterValue]);
+  }, [filterBy]);
 
   return (
     <div className='mx-3'>
@@ -43,7 +43,7 @@ export default function HomeSearchBar({
           data-bs-toggle='dropdown'
           aria-expanded='false'
         >
-          <span className='mx-2'>{searchValue}</span>
+          <span className='mx-2'>{searchFilterBy}</span>
         </button>
         <ul className='dropdown-menu'>
           <li

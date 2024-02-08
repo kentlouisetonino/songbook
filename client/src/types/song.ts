@@ -13,3 +13,9 @@ export enum FilterBy {
   Artist = 'artist',
   Title = 'title'
 }
+
+export const FilterByLabel: Record<FilterBy, string> = {
+  [FilterBy.All]: 'All',
+  [FilterBy.Artist]: 'Artist',
+  [FilterBy.Title]: 'Title'
+};
