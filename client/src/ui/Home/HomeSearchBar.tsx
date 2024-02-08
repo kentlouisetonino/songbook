@@ -1,3 +1,4 @@
+import { useMemo } from 'react';
 import { FilterBy } from 'src/types/song';
 
 interface Props {
@@ -15,6 +16,17 @@ export default function HomeSearchBar({
   setFilterValue,
   onFilterBySearch
 }: Props) {
+  const searchValue = useMemo(() => {
+    switch (filterValue) {
+      case FilterBy.Artist:
+        return FilterBy.Artist;
+      case FilterBy.Title:
+        return FilterBy.Title;
+      default:
+        return FilterBy.All;
+    }
+  }, [filterValue]);
+
   return (
     <div className='mx-3'>
       <div className='input-group mb-3'>
@@ -31,13 +43,7 @@ export default function HomeSearchBar({
           data-bs-toggle='dropdown'
           aria-expanded='false'
         >
-          <span className='mx-2'>
-            {!filterBy || filterBy === 'all'
-              ? 'All'
-              : filterBy === 'artist'
-                ? 'Artist'
-                : 'Title'}
-          </span>
+          <span className='mx-2'>{searchValue}</span>
         </button>
         <ul className='dropdown-menu'>
           <li

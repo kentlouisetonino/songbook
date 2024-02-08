@@ -5,11 +5,11 @@ import Sidebar from '../components/Sidebar/Sidebar';
 import HomeListEmpty from './HomeListEmpty';
 import HomeListSongs from './HomeListSongs';
 import HomeSearchBar from './HomeSearchBar';
-import { FilterBy } from 'src/types/song';
+import { FilterBy, Song } from 'src/types/song';
 import { User } from 'src/types/user';
 
 interface Props {
-  songs: any[];
+  songs: Song[];
   userInfo: User;
   filterBy: FilterBy;
   filterValue: string;
@@ -37,9 +37,9 @@ export default function HomeSignedIn({
       <Navbar />
       <div className='d-flex'>
         <Sidebar
-          firstName={userInfo?.firstName}
-          lastName={userInfo?.lastName}
-          email={userInfo?.email}
+          firstName={userInfo.firstName}
+          lastName={userInfo.lastName}
+          email={userInfo.email}
         />
         <div className='flex-shrink-1' style={{ width: '800px' }}>
           <HomeSearchBar

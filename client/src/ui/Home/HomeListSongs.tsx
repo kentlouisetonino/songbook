@@ -1,8 +1,9 @@
 import { NextRouter } from 'next/router';
 import { PageRoute } from '../../helpers/enums';
+import { Song } from 'src/types/song';
 
 interface Props {
-  songs: any[];
+  songs: Song[];
   router: NextRouter;
   onDeleteSong: (value: number) => void;
 }
@@ -10,21 +11,19 @@ interface Props {
 export default function HomeListSongs({ songs, router, onDeleteSong }: Props) {
   return (
     <>
-      {songs.map((song: any, index: any) => (
+      {songs.map((song: Song) => (
         <div
-          key={index}
+          key={song.id}
           className='card'
           style={{ width: '48%', margin: '7px' }}
         >
           <div className='card-body'>
-            <h5 className='card-title text-truncate fw-bolder'>
-              {song?.title}
-            </h5>
+            <h5 className='card-title text-truncate fw-bolder'>{song.title}</h5>
             <p
               className='card-text fst-italic fw-lighter'
               style={{ overflow: 'hidden' }}
             >
-              {song?.artist}
+              {song.artist}
             </p>
             <button
               className='btn btn-secondary w-100'
