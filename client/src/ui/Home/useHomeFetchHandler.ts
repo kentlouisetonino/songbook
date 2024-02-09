@@ -2,7 +2,7 @@ import { NextRouter } from 'next/router';
 import { useEffect } from 'react';
 import { User } from 'src/types/user';
 import Cookies from 'js-cookie';
-import { CookiesStorage, PageRoute } from 'src/helpers/enums';
+import { CookiesStorage, PageRoute } from 'src/types/route';
 import AuthService from 'src/services/AuthService';
 import UserService from 'src/services/UserService';
 
@@ -14,7 +14,7 @@ interface Props {
   setAccessToken: (value: string) => void;
 }
 
-export default function useHomeAuthHandler({
+export default function useHomeFetchHandler({
   router,
   setUserId,
   setUserInfo,

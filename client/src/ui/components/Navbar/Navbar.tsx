@@ -2,7 +2,7 @@ import Cookies from 'js-cookie';
 import { useEffect, useState, Fragment } from 'react';
 
 import styles from './index.module.css';
-import { CookiesStorage, PageRoute } from 'src/helpers/enums';
+import { CookiesStorage, PageRoute } from 'src/types/route';
 
 interface Props {
   currentPage?: string;

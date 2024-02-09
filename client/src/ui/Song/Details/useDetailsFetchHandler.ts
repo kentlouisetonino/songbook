@@ -1,7 +1,7 @@
 import Cookies from 'js-cookie';
 import { NextRouter } from 'next/router';
 import { useEffect } from 'react';
-import { CookiesStorage, PageRoute } from 'src/helpers/enums';
+import { CookiesStorage, PageRoute } from 'src/types/route';
 import AuthService from 'src/services/AuthService';
 import SongService from 'src/services/SongService';
 
@@ -13,7 +13,7 @@ interface Props {
   setLyrics: (value: string) => void;
 }
 
-export default function useDetailsAuthHandler({
+export default function useDetailsFetchHandler({
   songId,
   router,
   setTitle,

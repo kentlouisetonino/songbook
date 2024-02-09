@@ -1,5 +1,5 @@
 import { useRouter } from 'next/router';
-import { PageRoute } from 'src/helpers/enums';
+import { PageRoute } from 'src/types/route';
 
 interface Props {
   firstName: string;

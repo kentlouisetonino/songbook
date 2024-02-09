@@ -2,7 +2,7 @@ import { useRouter } from 'next/router';
 import { useState } from 'react';
 import SongService from '../../../services/SongService';
 import { User } from 'src/types/user';
-import useAddAuthHandler from './useAddAuthHandler';
+import useAddFetchHandler from './useAddFetchHandler';
 import useAddValidator from './useAddValidator';
 import AddLoading from './AddLoading';
 import AddForm from './AddForm';
@@ -34,7 +34,7 @@ export default function Add() {
   };
 
   // Hook to check if user is authorize to do the operation.
-  useAddAuthHandler({
+  useAddFetchHandler({
     router: router,
     setUserId: setUserId,
     setUserInfo: setUserInfo,

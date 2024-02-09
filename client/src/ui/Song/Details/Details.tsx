@@ -2,7 +2,7 @@ import { useRouter } from 'next/router';
 import { useState } from 'react';
 import Header from '../../components/Head/Head';
 import Navbar from '../../components/Navbar/Navbar';
-import useDetailsAuthHandler from './useDetailsAuthHandler';
+import useDetailsFetchHandler from './useDetailsFetchHandler';
 
 export default function Details() {
   const router = useRouter();
@@ -12,7 +12,7 @@ export default function Details() {
   const [lyrics, setLyrics] = useState('');
 
   // Hook to handle the authorization and fetching of song data.
-  useDetailsAuthHandler({
+  useDetailsFetchHandler({
     songId: songId,
     router: router,
     setTitle: setTitle,

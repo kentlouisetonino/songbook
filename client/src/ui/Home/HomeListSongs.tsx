@@ -1,5 +1,5 @@
 import { NextRouter } from 'next/router';
-import { PageRoute } from '../../helpers/enums';
+import { PageRoute } from '../../types/route';
 import { Song } from 'src/types/song';
 
 interface Props {

@@ -1,7 +1,7 @@
 import Cookies from 'js-cookie';
 import { NextRouter } from 'next/router';
 import { useEffect } from 'react';
-import { CookiesStorage, PageRoute } from 'src/helpers/enums';
+import { CookiesStorage, PageRoute } from 'src/types/route';
 
 interface Props {
   router: NextRouter;

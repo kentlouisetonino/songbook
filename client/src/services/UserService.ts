@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { APIEndpoint, PageRoute } from 'src/helpers/enums';
+import { APIEndpoint, PageRoute } from 'src/types/route';
 import Swal from 'sweetalert2';
 
 export default class UserService {

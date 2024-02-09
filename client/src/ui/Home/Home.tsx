@@ -5,7 +5,7 @@ import HomeSignedIn from './HomeSignedIn';
 import HomeSignedOut from './HomeSignedOut';
 import { User } from 'src/types/user';
 import { FilterBy, Song } from 'src/types/song';
-import useHomeAuthHandler from './useHomeAuthHandler';
+import useHomeFetchHandler from './useHomeFetchHandler';
 import useHomeInitialization from './useHomeInitialization';
 
 export default function Home() {
@@ -60,7 +60,7 @@ export default function Home() {
   }
 
   // Authenticate the user.
-  useHomeAuthHandler({
+  useHomeFetchHandler({
     router: router,
     setUserId: setUserId,
     setUserInfo: setUserInfo,
