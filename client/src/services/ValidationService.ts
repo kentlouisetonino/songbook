@@ -30,7 +30,7 @@ export default class ValidationService {
     });
   }
 
-  static songValidor() {
+  static songValidator() {
     return yup.object().shape({
       title: yup.string().required(),
       artist: yup.string().required(),

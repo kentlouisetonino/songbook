@@ -15,7 +15,7 @@ import TextAreaField from '../../components/TextAreaField/TextAreaField';
 
 export default function Update() {
   const router = useRouter();
-  const songId = router.query?.songId;
+  const songId = Number(router.query?.songId ?? '');
   const [accessToken, setAccessToken] = useState('');
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
@@ -65,7 +65,7 @@ export default function Update() {
 
         SongService.getSongAPI({
           accessToken: accessToken,
-          songId: songId,
+          songId: Number(songId),
           setTitle: setTitle,
           setArtist: setArtist,
           setLyrics: setLyrics
@@ -75,7 +75,7 @@ export default function Update() {
   }, [router.isReady]);
 
   useEffect(() => {
-    ValidationService.songValidor()
+    ValidationService.songValidator()
       .isValid({
         title: title,
         artist: artist,

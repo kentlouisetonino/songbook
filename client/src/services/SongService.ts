@@ -59,7 +59,7 @@ export default class SongService {
     setLyrics
   }: {
     accessToken: string;
-    songId: any;
+    songId: number;
     setTitle: (value: string) => void;
     setArtist: (value: string) => void;
     setLyrics: (value: string) => void;
