@@ -1,15 +1,10 @@
-import Cookies from 'js-cookie';
 import { useRouter } from 'next/router';
-import { Fragment, useEffect, useState } from 'react';
-import { CookiesStorage, PageRoute } from 'src/helpers/enums';
+import { useState } from 'react';
 import UserService from '../../services/UserService';
-import ValidationService from '../../services/ValidationService';
-import Footer from '../components/Footer/Footer';
-import Header from '../components/Head/Head';
-import InputField from '../components/InputField/InputField';
-import Navbar from '../components/Navbar/Navbar';
-import PasswordCheckbox from '../components/PasswordCheckbox/PasswordCheckbox';
-import Spinner from '../components/Spinner/Spinner';
+import RegisterLoading from './RegisterLoading';
+import RegisterForm from './RegisterForm';
+import useRegisterValidator from './useRegisterValidator';
+import useRegisterChecker from './useRegisterChecker';
 
 export default function Register() {
   const router = useRouter();
@@ -33,96 +28,36 @@ export default function Register() {
     });
   };
 
-  useEffect(() => {
-    ValidationService.registerValidator()
-      .isValid({
-        firstName: firstName,
-        lastName: lastName,
-        email: email,
-        password: password
-      })
-      .then((valid) => {
-        if (valid) setIsInputsValid(true);
-        else setIsInputsValid(false);
-      });
-  }, [email, password]);
+  // Validate the input of users.
+  useRegisterValidator({
+    email: email,
+    password: password,
+    lastName: lastName,
+    firstName: firstName,
+    setIsInputsValid: setIsInputsValid
+  });
 
-  useEffect(() => {
-    if (Cookies.get(CookiesStorage.AccessToken)) {
-      router.push(PageRoute.Root);
-    }
-  }, []);
+  // Check if the user is already login.
+  useRegisterChecker({
+    router: router
+  });
+
+  if (isLoading) {
+    return <RegisterLoading />;
+  }
 
   return (
-    <Fragment>
-      <Header title='SongBook | Register' />
-      {isLoading ? (
-        <Spinner />
-      ) : (
-        <Fragment>
-          <Navbar currentPage='register' />
-          <div className='d-flex justify-content-center mt-5'>
-            <div className='w-50 mt-5'>
-              <div className='mb-4'>
-                <InputField
-                  label='First Name'
-                  type='text'
-                  placeholder='Enter your first name'
-                  value={firstName}
-                  onChange={setFirstName}
-                />
-              </div>
-
-              <div className='mb-4'>
-                <InputField
-                  label='Last Name'
-                  type='text'
-                  placeholder='Enter your last name'
-                  value={lastName}
-                  onChange={setLastName}
-                />
-              </div>
-
-              <div className='mb-4'>
-                <InputField
-                  label='Email'
-                  type='email'
-                  placeholder='Enter your email address'
-                  value={email}
-                  onChange={setEmail}
-                />
-              </div>
-              <div className='mb-2'>
-                <InputField
-                  label='Password'
-                  type='password'
-                  placeholder='Enter your password'
-                  value={password}
-                  onChange={setPassword}
-                  domId={'password'}
-                />
-              </div>
-              <div className='mb-5 form-check'>
-                <PasswordCheckbox />
-              </div>
-              <button
-                disabled={email && password && isInputsValid ? false : true}
-                className={`btn btn-secondary w-100 mt-3`}
-                onClick={() => onSubmit()}
-              >
-                Submit
-              </button>
-            </div>
-          </div>
-
-          <div
-            className='container fixed-bottom'
-            style={{ maxWidth: '1080px' }}
-          >
-            <Footer />
-          </div>
-        </Fragment>
-      )}
-    </Fragment>
+    <RegisterForm
+      email={email}
+      password={password}
+      lastName={lastName}
+      firstName={firstName}
+      isInputsValid={isInputsValid}
+      setEmail={setEmail}
+      setPassword={setPassword}
+      setLastName={setLastName}
+      setFirstName={setFirstName}
+      onSubmit={onSubmit}
+    />
   );
 }
