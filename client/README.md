@@ -1,4 +1,5 @@
-## Setup
+### SETUP
+##
 > - Create a `.env.local` file in the root directory and put the key value pair.
 ```bash
 NEXT_PUBLIC_BACKEND_API_ENDPOINT='http://localhost:11000'
