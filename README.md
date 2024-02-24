@@ -1,5 +1,5 @@
-## Description
-
+### DESCRIPTION
+##
 https://github.com/kentlouisetonino/songbook/assets/69438999/d56c6bd2-fa43-40f4-a3ff-3d9f477f5563
 
 <br />
@@ -20,36 +20,14 @@ https://github.com/kentlouisetonino/songbook/assets/69438999/d56c6bd2-fa43-40f4-
 - Can filter song by title.
 ```
 
-
-> - The technology stack are:
-
-```plaintext
-Client-Side
-    - Bootstrap
-    - ReactJS
-    - NextJS
-    - TypeScript
-
-Server-Side
-    - REST APIs
-    - TypeORM
-    - JWT
-    - NestJS
-    - MySQL
-    - TypeScript
-    - NodeJS
-    - Docker
-```
-
 <br />
 <br />
 
 
 
-## Client-Side Development Guide
-> - Go to the `client` directory.
-
-> - Create a `.env.local` file in the root directory and put the key value pair.
+### DEVELOPMENT
+##
+> - Go to the `client` directory and create a `.env.local` file.
 
 ```bash
 NEXT_PUBLIC_BACKEND_API_ENDPOINT='http://localhost:11000'
@@ -64,15 +42,7 @@ yarn build
 yarn dev
 ```
 
-<br />
-<br />
-
-
-
-## Server-Side Development Guide
-> - Go to the `server` directory.
-
-> - Create a `.env` file in the root directory and put the key value pair.
+> - Go to the `server` directory and create `.env` file.
 
 ```bash
 # * This is needed for authentication.
