@@ -4,7 +4,7 @@ https://github.com/kentlouisetonino/songbook/assets/69438999/d56c6bd2-fa43-40f4-
 
 <br />
 
-> - A software that saves song information.
+> - A web application software that saves song information.
 
 > - Below are the features implemented.
 
