@@ -4,7 +4,7 @@ https://github.com/kentlouisetonino/songbook/assets/69438999/d56c6bd2-fa43-40f4-
 
 <br />
 
-> - A web application that will allow the to save a song description and lyrics.
+> - A software that allows to save a song information.
 
 > - Below are the features implemented.
 
