@@ -8,8 +8,6 @@ https://github.com/kentlouisetonino/songbook/assets/69438999/d56c6bd2-fa43-40f4-
 
 > - Below are the features implemented.
 
-> - Videos : https://www.youtube.com/playlist?list=PLPks-uiro_XLZfAILQqna29Mxjoa4bWRn
-
 ```plaintext
 - Can create user.
 - Can login user.
